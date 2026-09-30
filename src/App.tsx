@@ -5,6 +5,7 @@ import { AboutSection } from './components/AboutSection';
 import { FourFeatureCards } from './components/FourFeatureCards';
 import { StatsRibbon } from './components/StatsRibbon';
 import { AcademicStages } from './components/AcademicStages';
+import { PartnersSlider } from './components/PartnersSlider';
 import { CampusGalleryEvents } from './components/CampusGalleryEvents';
 import { ScrollingGallerySection } from './components/ScrollingGallerySection';
 import { EnquiryFormSection } from './components/EnquiryFormSection';
@@ -46,8 +47,11 @@ export function App() {
         {/* 3. Key Metrics & Counter Stats Ribbon */}
         <StatsRibbon />
 
-        {/* 5. Academic Programs & Learning Stages */}
+        {/* 4. Academic Programs & Learning Stages */}
         <AcademicStages onOpenAdmissionModal={() => setAdmissionModalOpen(true)} />
+
+        {/* 5. Curriculum & Learning Partners Logo Marquee */}
+        <PartnersSlider />
 
         {/* 6. Glimpses of JRS (Photo Grid) & Latest Events Panel */}
         <CampusGalleryEvents />

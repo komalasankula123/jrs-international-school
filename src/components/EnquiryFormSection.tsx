@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { GraduationCap, CheckCircle2, ArrowRight } from 'lucide-react';
-import { JRSRotatingLogoBg } from './JRSRotatingLogoBg';
 
 export const EnquiryFormSection: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -23,22 +22,6 @@ export const EnquiryFormSection: React.FC = () => {
 
   return (
     <section id="enquiry-form" className="py-8 sm:py-12 bg-[#0a1f14] text-white relative overflow-hidden">
-      {/* Decorative Rotating JRS Logo Background */}
-      <JRSRotatingLogoBg position="top-right" size="lg" opacity="opacity-25" isDark={true} />
-      
-      {/* Background Subtle Glowing Vectors */}
-      <div className="absolute inset-0 pointer-events-none opacity-15">
-        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-          <g transform="translate(380, 50) scale(0.6)" stroke="#22c55e" strokeWidth="2" fill="none">
-            <path d="M10,30 Q30,5 50,25 Q70,45 90,20 Q60,60 30,50 Z" />
-          </g>
-          <g transform="translate(520, 60) scale(0.6)" stroke="#ef4444" strokeWidth="2" fill="none">
-            <path d="M10,20 Q40,0 70,30 Q40,60 10,20 Z" />
-            <line x1="10" y1="20" x2="70" y2="30" />
-          </g>
-        </svg>
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-6 items-center">
           

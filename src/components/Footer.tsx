@@ -174,7 +174,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmissionModal }) => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div>
             © {new Date().getFullYear()} JRS International School. All Rights Reserved.
           </div>

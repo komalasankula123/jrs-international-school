@@ -27,11 +27,11 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
           
           {/* Left Column: School Campus Building Image */}
           <div className="lg:col-span-6 w-full h-full flex items-center justify-center">
-            <div className="w-full overflow-hidden rounded-xl shadow-lg border border-slate-100 bg-slate-50 group">
+            <div className="w-full overflow-hidden rounded-2xl shadow-xl border border-slate-200/80 bg-slate-50 group">
               <img
-                src="/jrs-campus-building.jpg"
-                alt="JRS International School Campus"
-                className="w-full h-[340px] sm:h-[420px] lg:h-[480px] object-cover object-center group-hover:scale-102 transition-transform duration-500"
+                src="/jrs-campus-building-focused.jpg"
+                alt="JRS International School Campus Building"
+                className="w-full h-[320px] sm:h-[380px] lg:h-[420px] object-cover object-top sm:object-[center_10%] group-hover:scale-102 transition-transform duration-500"
                 loading="lazy"
               />
             </div>
