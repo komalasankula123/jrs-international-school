@@ -10,6 +10,5 @@ interface JRSRotatingLogoBgProps {
 }
 
 export const JRSRotatingLogoBg: React.FC<JRSRotatingLogoBgProps> = () => {
-  // Disabled background watermark rings, red marks, and globe map overlays to keep all section backgrounds clean
   return null;
 };

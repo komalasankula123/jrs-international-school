@@ -1,206 +1,180 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Sparkles, ChevronLeft, ChevronRight, CheckCircle2 } from 'lucide-react';
-import { JRSRotatingLogoBg } from './JRSRotatingLogoBg';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Sparkles, BookOpen, Rocket, Award, CheckCircle2, ArrowUpRight } from 'lucide-react';
 
 interface AcademicStagesProps {
   onOpenAdmissionModal?: () => void;
 }
 
-const showcaseItems = [
+interface StageItem {
+  id: string;
+  stageName: string;
+  grades: string;
+  ageGroup: string;
+  title: string;
+  badge: string;
+  description: string;
+  image: string;
+  icon: React.ElementType;
+  highlights: string[];
+}
+
+const stagesData: StageItem[] = [
   {
-    id: 'learning',
-    tabName: 'Learning',
-    title: 'Academic Excellence & Learning',
-    badge: 'Core Academic Excellence',
-    description: 'Master conceptual depth and analytical thinking with our CBSE curriculum, smart digital classrooms, and dedicated faculty mentorship at every grade level.',
+    id: 'pre-primary',
+    stageName: 'Pre-Primary',
+    grades: 'Nursery – UKG',
+    ageGroup: 'Ages 3 – 5',
+    title: 'Foundational Years',
+    badge: 'Play-Way & Phonics',
+    description: 'Nurturing curiosity, joy, and sensory motor development in a caring, vibrant, child-centric wonderland.',
+    image: '/two-school-girls.jpg',
+    icon: Sparkles,
+    highlights: ['Activity-Based Learning', 'Phonics & Early Numbers', 'Sensory & Creative Play'],
+  },
+  {
+    id: 'primary',
+    stageName: 'Primary Stage',
+    grades: 'Grades I – V',
+    ageGroup: 'Ages 6 – 10',
+    title: 'Preparatory Excellence',
+    badge: 'Concept Discovery',
+    description: 'Building strong foundational skills in languages, mathematics, environmental inquiry, and digital literacy.',
     image: '/jrs-classroom-study.png',
-    alt: 'Interactive classroom study and collaborative learning at JRS School',
-    highlights: ['CBSE Curriculum Mastery', 'Interactive Smart Classrooms', 'Individual Faculty Mentorship'],
+    icon: BookOpen,
+    highlights: ['NCERT Concept Mastery', 'Interactive Smart Classes', '1:15 Faculty Mentoring'],
   },
   {
-    id: 'exploring',
-    tabName: 'Exploring',
-    title: 'Research & Creative Discovery',
-    badge: 'Library & Innovation Labs',
-    description: 'Dive deep into expansive library literature, language clubs, digital research, and modern science & robotics laboratories where curiosity turns into breakthrough discoveries.',
-    image: '/jrs-library-reading.png',
-    alt: 'Students reading and researching in the quiet JRS library',
-    highlights: ['STEM & Robotics Labs', 'Rich Multi-Genre Library', 'Language & Coding Clubs'],
+    id: 'middle',
+    stageName: 'Middle School',
+    grades: 'Grades VI – VIII',
+    ageGroup: 'Ages 11 – 14',
+    title: 'Middle School Rigor',
+    badge: 'STEM & Analytical',
+    description: 'Transitioning into advanced analytical thinking, experiential science labs, robotics coding, and athletic sports.',
+    image: '/event-science-expo.jpg',
+    icon: Rocket,
+    highlights: ['STEM Robotics Labs', 'Language Olympiads & Debates', 'Scientific Inquiry Hub'],
   },
   {
-    id: 'showcasing',
-    tabName: 'Showcasing',
-    title: 'Projects & Public Showcase',
-    badge: 'Exhibitions & Competitions',
-    description: "Bring your hard work into the world—whether presenting scientific research, launching innovations, or representing JRS at prestigious inter-school Olympiads and arts exhibitions.",
-    image: '/jrs-thumbs-up.jpg',
-    alt: 'Confident JRS Students celebrating academic milestones',
-    highlights: ['Inter-School Olympiads', 'Annual Science Exhibitions', 'Public Speaking & Debate'],
-  },
-  {
-    id: 'leading',
-    tabName: 'Leading',
-    title: 'Athletics & Student Leadership',
-    badge: 'Campus Life & Athletics',
-    description: 'Build resilience, discipline, and character across our sprawling 10+ acre campus, athletic tracks, sports arenas, and democratic student council governance.',
-    image: '/jrs-campus-walk.jpg',
-    alt: 'Senior students in uniform and blazer embodying JRS leadership and discipline',
-    highlights: ['10+ Acre Green Campus', 'Athletic Tracks & Courts', 'Student Council Governance'],
+    id: 'holistic',
+    stageName: 'Beyond Academics',
+    grades: 'All Grades',
+    ageGroup: '360° Growth',
+    title: 'Holistic Leadership',
+    badge: 'Sports & Arts',
+    description: 'Fostering disciplined character, teamwork, fine arts, and democratic student governance on our 10+ acre campus.',
+    image: '/event-sports-meet.jpg',
+    icon: Award,
+    highlights: ['Athletic Arena & Sports', 'Performing Arts & Choir', 'Student Council Leadership'],
   },
 ];
 
 export const AcademicStages: React.FC<AcademicStagesProps> = ({ onOpenAdmissionModal }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const activeItem = showcaseItems[activeIndex];
-
-  const handleNext = () => {
-    setActiveIndex((prev) => (prev + 1) % showcaseItems.length);
-  };
-
-  const handlePrev = () => {
-    setActiveIndex((prev) => (prev - 1 + showcaseItems.length) % showcaseItems.length);
+  const scrollToSection = (sectionId: string) => {
+    const el = document.getElementById(sectionId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
-    <section 
-      id="academic-stages" 
-      className="relative bg-[#f8fafc] w-full py-8 sm:py-12 lg:py-14 border-b border-slate-200/80 overflow-hidden"
-    >
-      {/* Decorative Rotating JRS Logo Background */}
-      <JRSRotatingLogoBg position="top-right" size="lg" opacity="opacity-15" />
-      <JRSRotatingLogoBg position="bottom-left" size="md" opacity="opacity-15" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+    <section id="academic-stages" className="py-8 sm:py-12 bg-slate-50 relative overflow-hidden border-b border-slate-200/80">
+      {/* Ambient background glows */}
+      <div className="absolute top-0 right-1/4 w-72 h-72 bg-blue-100/40 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-amber-100/30 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Top Centered Lead Header */}
-        <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 border border-red-100 text-red-700 text-xs font-bold uppercase tracking-wider mb-3 shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-red-600" />
-            <span>Interactive Learning Pathways</span>
-          </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight font-serif mb-3">
-            Holistic Growth Beyond the Blackboard
+        {/* Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
+          <span className="text-[#002e6d] text-[10.5px] sm:text-xs font-extrabold uppercase tracking-[0.2em] px-3 py-1 rounded-full bg-blue-50 border border-blue-200 inline-block mb-2 shadow-2xs">
+            Curriculum &amp; Learning Stages
+          </span>
+          <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-slate-900 tracking-tight font-serif leading-tight">
+            Academic Pathways at JRS
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-slate-600 font-normal leading-relaxed max-w-2xl mx-auto font-sans">
-            Courses are hands-on, project-based, and designed to help students build real-world skills through clubs, research, competitions, and leadership.
+          <div className="w-10 h-1 bg-amber-400 mx-auto mt-2 mb-2.5 rounded-full" />
+          <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
+            A progressive CBSE learning journey designed to ignite curiosity, cultivate critical thinking, and build confident future leaders.
           </p>
         </div>
 
-        {/* Clean Interactive Tabs Bar */}
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8 sm:mb-10">
-          {showcaseItems.map((item, idx) => {
-            const isActive = activeIndex === idx;
+        {/* 4-Card Stage Grid with Compact Equal Proportions */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4 items-stretch">
+          {stagesData.map((stage, idx) => {
+            const Icon = stage.icon;
             return (
-              <button
-                key={item.id}
-                onClick={() => setActiveIndex(idx)}
-                className={`relative px-5 py-2.5 sm:px-7 sm:py-3 rounded-full text-xs sm:text-sm font-extrabold tracking-wide transition-all duration-300 cursor-pointer shadow-xs ${
-                  isActive
-                    ? 'bg-red-600 text-white shadow-lg shadow-red-600/25 scale-105'
-                    : 'bg-white text-slate-700 border border-slate-200 hover:border-red-300 hover:text-red-700 hover:bg-red-50/50'
-                }`}
-              >
-                <span>{item.tabName}</span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Feature Showcase Card */}
-        <div className="relative max-w-5xl mx-auto">
-          <div className="relative rounded-3xl sm:rounded-[32px] overflow-hidden shadow-2xl bg-[#090f0c] border border-slate-800 ring-1 ring-white/10">
-            <AnimatePresence mode="wait">
               <motion.div
-                key={activeItem.id}
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -15 }}
-                transition={{ duration: 0.35, ease: 'easeOut' }}
-                className="grid grid-cols-1 lg:grid-cols-12 min-h-[440px] sm:min-h-[480px]"
+                key={stage.id}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: idx * 0.06 }}
+                className="group bg-white rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 h-full"
               >
-                {/* Left Side: High-Resolution Showcase Image */}
-                <div className="lg:col-span-6 relative min-h-[260px] sm:min-h-[320px] lg:min-h-full overflow-hidden bg-slate-950">
+                {/* 1. Equal Top Image Banner (Compact 50% Proportion) */}
+                <div className="relative h-40 sm:h-44 lg:h-48 w-full overflow-hidden bg-slate-900 shrink-0">
                   <img
-                    src={activeItem.image}
-                    alt={activeItem.alt}
-                    className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700 ease-out"
+                    src={stage.image}
+                    alt={stage.title}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent lg:hidden" />
-                </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-black/20 to-transparent" />
 
-                {/* Right Side: Deep Elegant Content Panel */}
-                <div className="lg:col-span-6 p-6 sm:p-9 lg:p-11 flex flex-col justify-between relative bg-[#0a100d] text-white">
-                  
-                  {/* Decorative Star Watermark */}
-                  <div className="absolute top-6 right-6 w-24 h-24 sm:w-28 sm:h-28 opacity-[0.06] pointer-events-none select-none text-white">
-                    <svg viewBox="0 0 100 100" fill="currentColor">
-                      <path d="M50 0 C60 30 70 40 100 50 C70 60 60 70 50 100 C40 70 30 60 0 50 C30 40 40 30 50 0 Z" />
-                    </svg>
+                  {/* Stage Grade Tag */}
+                  <div className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-white/95 backdrop-blur-md text-[#002e6d] text-[10px] font-extrabold uppercase tracking-wider shadow-xs">
+                    {stage.grades}
                   </div>
 
-                  {/* Text Details */}
-                  <div className="relative z-10 space-y-4">
-                    <div>
-                      <span className="inline-block text-[11px] sm:text-xs font-extrabold uppercase tracking-widest text-green-400 bg-green-950/80 border border-green-700/60 px-3.5 py-1.5 rounded-full shadow-sm">
-                        {activeItem.badge}
-                      </span>
+                  {/* Icon Badge */}
+                  <div className="absolute bottom-2.5 left-2.5 flex items-center gap-1.5 text-white">
+                    <div className="w-6 h-6 rounded-md bg-[#002e6d] text-amber-300 flex items-center justify-center shadow-xs">
+                      <Icon className="w-3.5 h-3.5" />
                     </div>
+                    <div>
+                      <div className="text-[11px] font-black uppercase text-amber-300 tracking-wider leading-none">{stage.stageName}</div>
+                      <div className="text-[9px] text-white/80 font-medium">{stage.ageGroup}</div>
+                    </div>
+                  </div>
+                </div>
 
-                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-serif text-white tracking-tight leading-snug">
-                      {activeItem.title}
+                {/* 2. Equal Bottom Content Area (Compact 50% Proportion) */}
+                <div className="p-3.5 sm:p-4 flex-1 flex flex-col justify-between bg-white">
+                  <div className="space-y-1.5">
+                    <h3 className="text-sm sm:text-base font-serif font-bold text-slate-900 group-hover:text-[#17479d] transition-colors leading-snug">
+                      {stage.title}
                     </h3>
-
-                    <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-normal">
-                      {activeItem.description}
+                    <p className="text-[11px] text-slate-600 leading-relaxed font-normal line-clamp-2 min-h-[32px]">
+                      {stage.description}
                     </p>
 
-                    {/* Quick Highlights Checkpoints */}
-                    <div className="pt-2 space-y-2">
-                      {activeItem.highlights.map((h, i) => (
-                        <div key={i} className="flex items-center gap-2 text-xs sm:text-sm text-slate-200 font-medium">
-                          <CheckCircle2 className="w-4 h-4 text-green-400 shrink-0" />
-                          <span>{h}</span>
+                    {/* Highlights List */}
+                    <div className="space-y-1 pt-1.5 border-t border-slate-100">
+                      {stage.highlights.map((point, pIdx) => (
+                        <div key={pIdx} className="flex items-start gap-1.5 text-[10.5px] sm:text-[11px] text-slate-700 font-medium">
+                          <CheckCircle2 className="w-3 h-3 text-amber-500 shrink-0 mt-0.5" />
+                          <span className="truncate">{point}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  {/* Bottom Action Footer */}
-                  <div className="relative z-10 pt-6 mt-6 border-t border-slate-800 flex items-center justify-between gap-4">
-                    {/* Explore / Admission CTA */}
+                  {/* Action Link */}
+                  <div className="pt-3 mt-1.5">
                     <button
-                      onClick={onOpenAdmissionModal}
-                      className="px-5 py-2.5 sm:px-6 sm:py-3 rounded-full bg-white hover:bg-red-600 hover:text-white text-slate-900 font-extrabold text-xs sm:text-sm shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer flex items-center gap-2 group"
+                      onClick={onOpenAdmissionModal || (() => scrollToSection('enquiry-form'))}
+                      className="w-full py-2 px-3 rounded-lg bg-slate-50 hover:bg-[#002e6d] text-[#002e6d] hover:text-white border border-slate-200 hover:border-[#002e6d] text-[11px] font-bold transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer group/btn shadow-2xs"
                     >
-                      <span>Apply for Admission</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform stroke-[2.5]" />
+                      <span>Apply for {stage.stageName}</span>
+                      <ArrowUpRight className="w-3 h-3 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                     </button>
-
-                    {/* Navigation Arrow Controls */}
-                    <div className="flex items-center gap-2">
-                      <button
-                        onClick={handlePrev}
-                        aria-label="Previous Stage"
-                        className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-900 hover:bg-red-600 text-white border border-slate-700 flex items-center justify-center transition-all hover:scale-110 cursor-pointer shadow-sm"
-                      >
-                        <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5]" />
-                      </button>
-                      <button
-                        onClick={handleNext}
-                        aria-label="Next Stage"
-                        className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-900 hover:bg-red-600 text-white border border-slate-700 flex items-center justify-center transition-all hover:scale-110 cursor-pointer shadow-sm"
-                      >
-                        <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5]" />
-                      </button>
-                    </div>
                   </div>
-
                 </div>
               </motion.div>
-            </AnimatePresence>
-          </div>
+            );
+          })}
         </div>
 
       </div>

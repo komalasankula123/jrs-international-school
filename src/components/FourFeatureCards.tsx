@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, BookOpen, Compass, Award, Sparkles, CheckCircle2 } from 'lucide-react';
-import { JRSRotatingLogoBg } from './JRSRotatingLogoBg';
+import { ArrowUpRight, BookOpen, Compass, Award, Sparkles } from 'lucide-react';
 
 export const FourFeatureCards: React.FC = () => {
   const cards = [
@@ -12,10 +11,10 @@ export const FourFeatureCards: React.FC = () => {
       description: "Nurturing curious minds with a blend of global education standards and rich Indian cultural ethos.",
       highlights: ["100% Board Pass Track Record", "Value-Based Character Building"],
       icon: Compass,
-      themeColor: "from-rose-600 to-red-700",
-      accentBg: "bg-rose-50 text-rose-700 group-hover:bg-rose-600 group-hover:text-white",
-      btnBg: "bg-rose-600 hover:bg-rose-700 text-white",
-      glowColor: "group-hover:shadow-rose-600/25",
+      themeColor: "from-[#002E6D] to-[#0057B8]",
+      accentBg: "bg-blue-50 text-[#002E6D] group-hover:bg-[#002E6D] group-hover:text-white",
+      btnBg: "bg-[#002E6D] hover:bg-[#0057B8] text-white",
+      glowColor: "group-hover:shadow-[#002E6D]/25",
       image: "/jrs-thumbs-up.jpg",
       alt: "About JRS - Confident Students at Campus Gate",
       link: "#about",
@@ -27,10 +26,10 @@ export const FourFeatureCards: React.FC = () => {
       description: "Experiential NCERT learning with digital smartboards, personalized faculty care, and STEM inquiry.",
       highlights: ["Smart Interactive Classrooms", "1:25 Teacher-Student Ratio"],
       icon: BookOpen,
-      themeColor: "from-emerald-600 to-teal-700",
-      accentBg: "bg-emerald-50 text-emerald-700 group-hover:bg-emerald-600 group-hover:text-white",
-      btnBg: "bg-emerald-600 hover:bg-emerald-700 text-white",
-      glowColor: "group-hover:shadow-emerald-600/25",
+      themeColor: "from-[#003F88] to-[#0070C9]",
+      accentBg: "bg-sky-50 text-[#003F88] group-hover:bg-[#0070C9] group-hover:text-white",
+      btnBg: "bg-[#0070C9] hover:bg-[#003F88] text-white",
+      glowColor: "group-hover:shadow-[#0070C9]/25",
       image: "/jrs-classroom-study.png",
       alt: "Academics - Dedicated Classroom Study & Mentorship",
       link: "#academic-stages",
@@ -42,13 +41,13 @@ export const FourFeatureCards: React.FC = () => {
       description: "Expansive green campus with athletic tracks, sports arenas, disciplined student council, and 24/7 safe surveillance.",
       highlights: ["Athletic Sports Arena", "24/7 GPS & CCTV Safety"],
       icon: Award,
-      themeColor: "from-amber-600 to-orange-700",
-      accentBg: "bg-amber-50 text-amber-700 group-hover:bg-amber-600 group-hover:text-white",
-      btnBg: "bg-amber-600 hover:bg-amber-700 text-white",
-      glowColor: "group-hover:shadow-amber-600/25",
+      themeColor: "from-[#004AAD] to-[#1683D8]",
+      accentBg: "bg-blue-50 text-[#004AAD] group-hover:bg-[#1683D8] group-hover:text-white",
+      btnBg: "bg-[#1683D8] hover:bg-[#004AAD] text-white",
+      glowColor: "group-hover:shadow-[#1683D8]/25",
       image: "/jrs-campus-walk.jpg",
       alt: "Our Differentiators - Student Leadership & Values",
-      link: "#pillars",
+      link: "#academic-stages",
     },
     {
       title: "Beyond Classroom",
@@ -57,10 +56,10 @@ export const FourFeatureCards: React.FC = () => {
       description: "Fostering well-rounded personalities through science labs, arts, music, robotics, and public speaking clubs.",
       highlights: ["Robotics & Innovation Labs", "Arts, Music & Debate Clubs"],
       icon: Sparkles,
-      themeColor: "from-indigo-600 to-blue-700",
-      accentBg: "bg-indigo-50 text-indigo-700 group-hover:bg-indigo-600 group-hover:text-white",
-      btnBg: "bg-indigo-600 hover:bg-indigo-700 text-white",
-      glowColor: "group-hover:shadow-indigo-600/25",
+      themeColor: "from-[#173F9E] to-[#4F46B8]",
+      accentBg: "bg-indigo-50 text-[#173F9E] group-hover:bg-[#4F46B8] group-hover:text-white",
+      btnBg: "bg-[#4F46B8] hover:bg-[#173F9E] text-white",
+      glowColor: "group-hover:shadow-[#4F46B8]/25",
       image: "/jrs-library-reading.png",
       alt: "Beyond Classroom - Library Reading & Exploration",
       link: "#events",
@@ -76,10 +75,6 @@ export const FourFeatureCards: React.FC = () => {
 
   return (
     <section className="py-8 sm:py-12 bg-gradient-to-b from-slate-50/60 via-white to-slate-50/40 relative overflow-hidden border-t border-slate-100">
-      {/* Decorative Rotating JRS Logo Background */}
-      <JRSRotatingLogoBg position="top-left" size="lg" opacity="opacity-15" />
-      <JRSRotatingLogoBg position="bottom-right" size="md" opacity="opacity-10" />
-      
       {/* Subtle decorative background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[350px] bg-rose-50/50 blur-3xl pointer-events-none rounded-full" />
 
@@ -93,9 +88,9 @@ export const FourFeatureCards: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-8 sm:mb-10"
         >
-          {/* Eyebrow in Theme Red */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-50 border border-red-200/80 text-red-600 text-xs sm:text-sm font-extrabold uppercase tracking-wider mb-3 shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-red-600" />
+          {/* Eyebrow in Deep Yellow */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-50 border border-amber-300 text-amber-800 text-xs sm:text-sm font-extrabold uppercase tracking-wider mb-3 shadow-xs">
+            <Sparkles className="w-3.5 h-3.5 text-amber-600" />
             <span>Discover JRS School</span>
           </div>
 
@@ -110,94 +105,73 @@ export const FourFeatureCards: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* 4 Feature Cards with Image-First & Interactive Cursor-Hover Content Reveal */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-7 mb-12">
+        {/* 4 Feature Cards with Compact Height */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-8">
           {cards.map((card, idx) => {
             const Icon = card.icon;
             return (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                transition={{ duration: 0.4, delay: idx * 0.08 }}
                 onClick={() => scrollTo(card.link)}
-                className={`group relative bg-white rounded-3xl border border-slate-200 shadow-md hover:shadow-2xl ${card.glowColor} transition-all duration-500 ease-out hover:-translate-y-2 cursor-pointer flex flex-col justify-between overflow-hidden h-[420px] sm:h-[450px]`}
+                className={`group relative bg-white rounded-2xl sm:rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl ${card.glowColor} transition-all duration-400 ease-out hover:-translate-y-1.5 cursor-pointer flex flex-col justify-between overflow-hidden h-[300px] sm:h-[330px]`}
               >
                 {/* Top Accent Gradient Bar */}
-                <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${card.themeColor} z-20`} />
+                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${card.themeColor} z-20`} />
 
                 {/* 1. Full Card Image Container */}
                 <div className="absolute inset-0 w-full h-full overflow-hidden bg-slate-900">
                   <img
                     src={card.image}
                     alt={card.alt}
-                    className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-110 group-hover:blur-[1px] brightness-95"
+                    className="w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105 brightness-95"
                     loading="lazy"
                   />
                   
                   {/* Subtle Base Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/45 to-transparent transition-opacity duration-400" />
                   
                   {/* Darker Overlay on Hover for Maximum Text Readability */}
-                  <div className="absolute inset-0 bg-slate-950/85 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                  <div className="absolute inset-0 bg-slate-950/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
 
                 {/* 2. Top Header Floating Badges (Always Visible) */}
-                <div className="relative z-10 p-5 sm:p-6 flex items-center justify-between">
-                  <span className="text-[11px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-slate-900 border border-white/40 shadow-sm group-hover:bg-white group-hover:text-black transition-colors">
+                <div className="relative z-10 p-3.5 sm:p-4 flex items-center justify-between">
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-white/90 backdrop-blur-md text-slate-900 border border-white/40 shadow-2xs group-hover:bg-white group-hover:text-black transition-colors">
                     {card.tag}
                   </span>
-                  <div className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 shadow-md backdrop-blur-md bg-white/90 text-slate-900 group-hover:scale-110`}>
-                    <Icon className="w-4 h-4 stroke-[2.4]" />
+                  <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center transition-all duration-300 shadow-sm backdrop-blur-md bg-white/90 text-slate-900 group-hover:scale-105`}>
+                    <Icon className="w-3.5 h-3.5 stroke-[2.2]" />
                   </div>
                 </div>
 
-                {/* 3. Bottom Content Box (Smooth Slide-Up & Reveal on Cursor Hover) */}
-                <div className="relative z-10 p-5 sm:p-6 flex flex-col justify-end">
+                {/* 3. Bottom Content Box */}
+                <div className="relative z-10 p-3.5 sm:p-4 flex flex-col justify-end">
                   
-                  {/* Title & Subtitle (Always Visible at bottom) */}
-                  <div className="transform transition-transform duration-500 group-hover:-translate-y-1">
-                    <h3 className="text-2xl font-extrabold text-white tracking-tight leading-snug font-serif drop-shadow-md">
+                  {/* Title & Subtitle */}
+                  <div className="transform transition-transform duration-300">
+                    <h3 className="text-base sm:text-lg font-extrabold text-white tracking-tight leading-snug font-serif drop-shadow-md">
                       {card.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-slate-200 font-medium drop-shadow-sm mt-0.5">
+                    <p className="text-[11px] sm:text-xs text-slate-200 font-medium drop-shadow-sm mt-0.5">
                       {card.subtitle}
                     </p>
                   </div>
 
-                  {/* Hidden Content that Slides Up and Appears on Cursor Placement / Hover */}
-                  <div className="max-h-0 opacity-0 overflow-hidden group-hover:max-h-48 group-hover:opacity-100 transition-all duration-500 ease-in-out pt-0 group-hover:pt-3">
-                    {/* Description */}
-                    <p className="text-xs text-slate-300 leading-relaxed font-normal mb-3">
+                  {/* Expanded content on hover */}
+                  <div className="max-h-0 opacity-0 overflow-hidden group-hover:max-h-28 group-hover:opacity-100 transition-all duration-300 ease-in-out pt-0 group-hover:pt-2">
+                    <p className="text-[11px] text-slate-300 leading-relaxed font-normal">
                       {card.description}
                     </p>
-
-                    {/* Quick Highlight Checkpoints */}
-                    <div className="space-y-1.5 mb-3.5">
-                      {card.highlights.map((item, hIdx) => (
-                        <div key={hIdx} className="flex items-center gap-2 text-[11px] text-white/90 font-semibold">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-green-400 shrink-0" />
-                          <span>{item}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Action Explore Button */}
-                    <div className="flex items-center justify-between pt-2 border-t border-white/15">
-                      <span className="text-xs font-bold text-white flex items-center gap-1">
-                        <span>Explore {card.title}</span>
-                      </span>
-                      <div className={`w-7 h-7 rounded-full flex items-center justify-center transition-all duration-300 shadow-md ${card.btnBg}`}>
-                        <ArrowUpRight className="w-4 h-4 stroke-[2.5] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                      </div>
-                    </div>
                   </div>
 
-                  {/* Prompt cue when not hovered */}
-                  <div className="flex items-center justify-between text-[11px] font-bold text-white/80 group-hover:hidden pt-2 border-t border-white/20 mt-2">
-                    <span>Hover to learn more</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 stroke-[2]" />
+                  {/* Bottom Footer Action Link */}
+                  <div className="flex items-center justify-between text-[11px] font-semibold text-white/90 pt-2 border-t border-white/20 mt-2 group-hover:text-amber-300 transition-colors">
+                    <span className="tracking-wide">Hover to learn more</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.2] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </div>
 
                 </div>

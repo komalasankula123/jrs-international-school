@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { GraduationCap, CheckCircle2, ArrowRight } from 'lucide-react';
+import { CheckCircle2, ArrowRight } from 'lucide-react';
 
 export const EnquiryFormSection: React.FC = () => {
   const [formData, setFormData] = useState({
-    name: '',
+    firstName: '',
+    surname: '',
     email: '',
-    phone: '',
+    location: '',
+    grade: '',
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -21,149 +23,177 @@ export const EnquiryFormSection: React.FC = () => {
   };
 
   return (
-    <section id="enquiry-form" className="py-8 sm:py-12 bg-[#0a1f14] text-white relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-6 items-center">
+    <section id="enquiry-form" className="relative w-full overflow-hidden bg-[#001738] py-8 sm:py-10 lg:py-12">
+      {/* Background Image - explicit img tag for 100% reliable rendering and crystal clear visibility */}
+      <img
+        src="/jrs-cta-students-science.jpg"
+        alt="JRS Students Science Lab Background"
+        className="absolute inset-0 w-full h-full object-cover object-center"
+      />
+      
+      {/* Transparent Royal Navy Tint Overlay for rich colors while keeping the image fully visible */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#001738]/70 via-[#002e6d]/50 to-[#001738]/70 pointer-events-none" />
+      <div className="absolute inset-0 bg-black/25 pointer-events-none" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
           
-          {/* Left Column: Heading & Priority Badge (4 cols) */}
-          <div className="md:col-span-5 lg:col-span-4 space-y-3.5">
-            
-            {/* Red Admissions Eyebrow */}
-            <div className="text-[12px] font-extrabold uppercase tracking-widest text-red-500">
-              ADMISSIONS 2026–27
-            </div>
-
-            {/* Title */}
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white font-serif tracking-tight leading-tight">
-              Enquiry Now
-            </h2>
-
-            {/* Description */}
-            <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-normal">
-              Take the first step towards a brighter future for your child. We are here to help you.
-            </p>
-
-            {/* Priority Badge */}
-            <div className="pt-1 flex items-center gap-3.5">
-              <div className="w-11 h-11 rounded-full bg-emerald-900/90 border border-emerald-500/30 flex items-center justify-center shrink-0 shadow-md">
-                <GraduationCap className="w-5 h-5 text-emerald-400" />
-              </div>
-              <div className="text-xs">
-                <div className="font-bold text-white text-[13px]">Your Child's Future</div>
-                <div className="text-red-400 font-semibold text-[11px]">Our Priority</div>
-              </div>
-            </div>
-
-          </div>
-
-          {/* Center Column: JRS Students Group Transparent Cutout (Larger & Prominent) */}
-          <div className="hidden lg:flex lg:col-span-3 items-end justify-center relative select-none">
-            <div className="relative w-full max-w-[360px] flex flex-col items-center group scale-105 xl:scale-110 origin-bottom">
-              {/* Soft ambient emerald glow */}
-              <div className="absolute inset-0 bg-emerald-500/20 blur-3xl rounded-full pointer-events-none transform -translate-y-6" />
-              
-              <img
-                src="/jrs-students-group-transparent.png"
-                alt="JRS International School Collaborative Learning"
-                className="w-full h-auto max-h-[440px] object-contain drop-shadow-[0_25px_35px_rgba(0,0,0,0.7)] group-hover:scale-105 transition-transform duration-500 relative z-10"
-                loading="lazy"
-              />
-              
-              <div className="mt-1 text-center relative z-10">
-                <span className="inline-block px-4 py-1 rounded-full bg-emerald-950/90 backdrop-blur-md text-[11px] font-bold text-emerald-300 border border-emerald-500/30 shadow-md">
-                  Collaborative Learning & Mentorship
+          {/* Left Column: Big Bold Title & Vision Statement */}
+          <div className="lg:col-span-6 flex flex-col justify-center text-white space-y-3">
+            <div>
+              <span className="text-amber-400 text-xs sm:text-sm font-extrabold uppercase tracking-[0.22em] block mb-1.5 drop-shadow-md">
+                ✦ ADMISSIONS OPEN 2026–2027
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold tracking-tight leading-[1.1] font-sans drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] text-white">
+                Join the <br />
+                <span className="text-amber-300">
+                  Movement
                 </span>
+              </h2>
+            </div>
+
+            <div className="space-y-3 pt-1">
+              <p className="text-slate-100 text-sm sm:text-base leading-relaxed font-normal max-w-lg drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                Our community is open, inspiring, and ambitious. We nurture scholars, creators, thinkers, and innovators. People who believe, who try, who achieve.
+              </p>
+              <div className="flex flex-wrap items-center gap-3 pt-0.5 text-xs text-amber-300 font-bold tracking-wider uppercase drop-shadow-sm">
+                <span className="flex items-center gap-1">• CBSE CURRICULUM</span>
+                <span className="flex items-center gap-1">• NURSERY TO VIII GRADE</span>
+                <span className="flex items-center gap-1">• UPPAL, HYDERABAD</span>
               </div>
             </div>
           </div>
 
-          {/* Right Column: White Form Card (5 cols) */}
-          <div className="md:col-span-7 lg:col-span-5">
-            <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xl text-slate-800 border border-white/20">
+          {/* Right Column: Crisp Pure White Form Card (Reduced Size & Padding) */}
+          <div className="lg:col-span-6 flex justify-center lg:justify-end">
+            <div className="w-full max-w-sm sm:max-w-md bg-white rounded-2xl p-4 sm:p-6 shadow-2xl text-slate-900 border border-slate-100">
               
+              <div className="mb-3">
+                <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight font-serif">
+                  Get Involved
+                </h3>
+                <p className="text-[11px] sm:text-xs text-slate-500">
+                  Fill in your details and our admissions team will reach out shortly.
+                </p>
+              </div>
+
               {submitted ? (
-                <div className="py-8 text-center space-y-3">
-                  <div className="w-14 h-14 rounded-full bg-green-100 text-green-700 flex items-center justify-center mx-auto">
-                    <CheckCircle2 className="w-8 h-8" />
+                <div className="py-6 text-center space-y-2.5">
+                  <div className="w-10 h-10 rounded-full bg-[#002e6d] text-white flex items-center justify-center mx-auto shadow-md">
+                    <CheckCircle2 className="w-5 h-5 text-amber-400" />
                   </div>
-                  <h3 className="text-xl font-bold text-black font-serif">
-                    Enquiry Submitted!
-                  </h3>
-                  <p className="text-slate-600 text-xs sm:text-sm max-w-sm mx-auto">
-                    Thank you, <strong className="text-green-800">{formData.name}</strong>. We will contact you at <strong className="text-green-800">{formData.phone}</strong> shortly.
+                  <h4 className="text-base font-bold text-slate-900 font-serif">
+                    Enquiry Submitted Successfully!
+                  </h4>
+                  <p className="text-slate-600 text-xs max-w-xs mx-auto">
+                    Thank you, <strong className="text-[#002e6d]">{formData.firstName} {formData.surname}</strong>. We will contact you shortly.
                   </p>
                   <button
                     type="button"
                     onClick={() => {
                       setSubmitted(false);
-                      setFormData({ name: '', email: '', phone: '' });
+                      setFormData({ firstName: '', surname: '', email: '', location: '', grade: '' });
                     }}
-                    className="mt-4 px-5 py-2 bg-green-700 hover:bg-green-800 text-white font-bold rounded-xl text-xs transition-all cursor-pointer"
+                    className="mt-2 px-4 py-1.5 bg-[#002e6d] hover:bg-[#17479d] text-white font-bold rounded-lg text-xs transition-all cursor-pointer shadow-sm"
                   >
                     Submit Another Enquiry
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-2.5">
                   
-                  {/* Name Input */}
-                  <div>
-                    <label className="block text-xs font-semibold text-slate-800 mb-1.5">
-                      Name <span className="text-red-600">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="Enter your name"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-green-500/30 focus:border-green-600 transition-all placeholder:text-slate-400 bg-slate-50/50 hover:bg-white"
-                    />
+                  {/* First Name & Surname Grid */}
+                  <div className="grid grid-cols-2 gap-2.5">
+                    <div>
+                      <label className="block text-[10.5px] font-bold uppercase tracking-wider text-slate-700 mb-0.5">
+                        First Name <span className="text-rose-600">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={formData.firstName}
+                        onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                        placeholder="First name"
+                        className="w-full px-2.5 py-1.5 bg-slate-50 border border-slate-300 focus:border-[#002e6d] focus:bg-white text-slate-900 text-xs sm:text-sm rounded-lg focus:outline-none transition-all placeholder:text-slate-400 font-medium shadow-2xs"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-[10.5px] font-bold uppercase tracking-wider text-slate-700 mb-0.5">
+                        Surname <span className="text-rose-600">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={formData.surname}
+                        onChange={(e) => setFormData({ ...formData, surname: e.target.value })}
+                        placeholder="Surname"
+                        className="w-full px-2.5 py-1.5 bg-slate-50 border border-slate-300 focus:border-[#002e6d] focus:bg-white text-slate-900 text-xs sm:text-sm rounded-lg focus:outline-none transition-all placeholder:text-slate-400 font-medium shadow-2xs"
+                      />
+                    </div>
                   </div>
 
                   {/* Email */}
                   <div>
-                    <label className="block text-xs font-semibold text-slate-800 mb-1.5">
-                      Email <span className="text-red-600">*</span>
+                    <label className="block text-[10.5px] font-bold uppercase tracking-wider text-slate-700 mb-0.5">
+                      Email Address <span className="text-rose-600">*</span>
                     </label>
                     <input
                       type="email"
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="Enter your email"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-green-500/30 focus:border-green-600 transition-all placeholder:text-slate-400 bg-slate-50/50 hover:bg-white"
+                      placeholder="name@example.com"
+                      className="w-full px-2.5 py-1.5 bg-slate-50 border border-slate-300 focus:border-[#002e6d] focus:bg-white text-slate-900 text-xs sm:text-sm rounded-lg focus:outline-none transition-all placeholder:text-slate-400 font-medium shadow-2xs"
                     />
                   </div>
 
-                  {/* Phone Number */}
+                  {/* Phone / Location */}
                   <div>
-                    <label className="block text-xs font-semibold text-slate-800 mb-1.5">
-                      Phone Number <span className="text-red-600">*</span>
+                    <label className="block text-[10.5px] font-bold uppercase tracking-wider text-slate-700 mb-0.5">
+                      Phone Number <span className="text-rose-600">*</span>
                     </label>
                     <input
-                      type="tel"
+                      type="text"
                       required
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="Enter your phone number"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-green-500/30 focus:border-green-600 transition-all placeholder:text-slate-400 bg-slate-50/50 hover:bg-white"
+                      value={formData.location}
+                      onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                      placeholder="+91 98765 43210"
+                      className="w-full px-2.5 py-1.5 bg-slate-50 border border-slate-300 focus:border-[#002e6d] focus:bg-white text-slate-900 text-xs sm:text-sm rounded-lg focus:outline-none transition-all placeholder:text-slate-400 font-medium shadow-2xs"
                     />
                   </div>
 
-                  {/* Green Send Enquiry Button */}
-                  <div className="pt-2">
+                  {/* Grade / Stage Selection */}
+                  <div>
+                    <label className="block text-[10.5px] font-bold uppercase tracking-wider text-slate-700 mb-0.5">
+                      Grade Applying For <span className="text-rose-600">*</span>
+                    </label>
+                    <select
+                      required
+                      value={formData.grade}
+                      onChange={(e) => setFormData({ ...formData, grade: e.target.value })}
+                      className="w-full px-2.5 py-1.5 bg-slate-50 border border-slate-300 focus:border-[#002e6d] focus:bg-white text-slate-900 text-xs sm:text-sm rounded-lg focus:outline-none transition-all font-medium cursor-pointer shadow-2xs"
+                    >
+                      <option value="" disabled>Select Grade (Nursery to VIII Grade)</option>
+                      <option value="Nursery / Pre-Primary">Nursery / Pre-Primary (Ages 3–5)</option>
+                      <option value="Primary (Grade I–V)">Primary School (Grade I–V)</option>
+                      <option value="Middle School (Grade VI–VIII)">Middle School (Grade VI–VIII)</option>
+                    </select>
+                  </div>
+
+                  {/* Submit Button */}
+                  <div className="pt-1.5">
                     <button
                       type="submit"
                       disabled={loading}
-                      className="w-full bg-[#008744] hover:bg-[#00733a] active:scale-[0.99] text-white font-bold py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer disabled:opacity-70"
+                      className="w-full py-2.5 rounded-lg bg-[#002e6d] hover:bg-[#17479d] text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-md transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer hover:scale-[1.01] active:scale-[0.98]"
                     >
                       {loading ? (
-                        <span>Sending...</span>
+                        <span>Submitting...</span>
                       ) : (
                         <>
-                          <span>Send Enquiry</span>
-                          <ArrowRight className="w-4 h-4 text-white" />
+                          <span>Join the Movement</span>
+                          <ArrowRight className="w-4 h-4" />
                         </>
                       )}
                     </button>
@@ -180,4 +210,3 @@ export const EnquiryFormSection: React.FC = () => {
     </section>
   );
 };
-

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Camera, X, ChevronLeft, ChevronRight, Sparkles, ZoomIn, Eye } from 'lucide-react';
-import { JRSRotatingLogoBg } from './JRSRotatingLogoBg';
 
 interface GalleryItem {
   id: number;
@@ -124,19 +123,15 @@ export const ScrollingGallerySection: React.FC = () => {
 
   return (
     <section id="gallery" className="py-8 sm:py-12 bg-[#fbfbf9] text-slate-900 relative overflow-hidden border-t border-slate-200">
-      {/* Subtle Background Elements */}
-      <JRSRotatingLogoBg position="top-right" size="lg" opacity="opacity-20" />
-      <JRSRotatingLogoBg position="bottom-left" size="md" opacity="opacity-15" />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-8 text-center">
-        {/* Eyebrow in Red */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-50 border border-red-200 text-red-600 text-xs sm:text-sm font-extrabold uppercase tracking-widest mb-3 shadow-xs">
-          <Camera className="w-4 h-4 text-red-600" />
+        {/* Eyebrow in Palette Secondary */}
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--palette-light)] border border-[var(--palette-secondary)]/20 text-[var(--palette-secondary)] text-xs sm:text-sm font-extrabold uppercase tracking-widest mb-3 shadow-xs">
+          <Camera className="w-4 h-4 text-[var(--palette-secondary)]" />
           <span>Life at JRS International School</span>
         </div>
 
         {/* Section Heading */}
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 font-serif tracking-tight leading-tight mb-3.5">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[var(--palette-primary)] font-serif tracking-tight leading-tight mb-3.5">
           Campus Moments &amp; Student Life Gallery
         </h2>
 
@@ -159,7 +154,7 @@ export const ScrollingGallerySection: React.FC = () => {
               <div
                 key={`row1-${item.id}-${idx}`}
                 onClick={() => setActiveItem(item)}
-                className="relative w-[290px] sm:w-[360px] md:w-[400px] h-[210px] sm:h-[250px] rounded-2xl overflow-hidden cursor-pointer group/card border border-slate-200/80 hover:border-emerald-600 shadow-md hover:shadow-2xl bg-white transition-all duration-300 shrink-0 hover:scale-[1.02]"
+                className="relative w-[290px] sm:w-[360px] md:w-[400px] h-[210px] sm:h-[250px] rounded-2xl overflow-hidden cursor-pointer group/card border border-slate-200/80 hover:border-[var(--palette-secondary)] shadow-md hover:shadow-2xl bg-white transition-all duration-300 shrink-0 hover:scale-[1.02]"
               >
                 <img
                   src={item.image}
@@ -171,7 +166,7 @@ export const ScrollingGallerySection: React.FC = () => {
                 
                 {/* Floating Category Pill */}
                 <div className="absolute top-3.5 left-3.5">
-                  <span className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-md text-[11px] font-bold text-emerald-800 shadow-sm border border-emerald-100">
+                  <span className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-md text-[11px] font-bold text-[var(--palette-primary)] shadow-sm border border-[var(--palette-secondary)]/20">
                     {item.category}
                   </span>
                 </div>
@@ -202,7 +197,7 @@ export const ScrollingGallerySection: React.FC = () => {
               <div
                 key={`row2-${item.id}-${idx}`}
                 onClick={() => setActiveItem(item)}
-                className="relative w-[290px] sm:w-[360px] md:w-[400px] h-[210px] sm:h-[250px] rounded-2xl overflow-hidden cursor-pointer group/card border border-slate-200/80 hover:border-red-600 shadow-md hover:shadow-2xl bg-white transition-all duration-300 shrink-0 hover:scale-[1.02]"
+                className="relative w-[290px] sm:w-[360px] md:w-[400px] h-[210px] sm:h-[250px] rounded-2xl overflow-hidden cursor-pointer group/card border border-slate-200/80 hover:border-[var(--palette-secondary)] shadow-md hover:shadow-2xl bg-white transition-all duration-300 shrink-0 hover:scale-[1.02]"
               >
                 <img
                   src={item.image}
@@ -214,7 +209,7 @@ export const ScrollingGallerySection: React.FC = () => {
                 
                 {/* Floating Category Pill */}
                 <div className="absolute top-3.5 left-3.5">
-                  <span className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-md text-[11px] font-bold text-red-700 shadow-sm border border-red-100">
+                  <span className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-md text-[11px] font-bold text-[var(--palette-secondary)] shadow-sm border border-[var(--palette-secondary)]/20">
                     {item.category}
                   </span>
                 </div>
@@ -226,7 +221,7 @@ export const ScrollingGallerySection: React.FC = () => {
 
                 {/* Title & Caption at Bottom */}
                 <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-1 group-hover/card:translate-y-0 transition-transform duration-300 text-left">
-                  <h3 className="text-sm sm:text-base font-bold text-white font-serif line-clamp-1 group-hover/card:text-red-300 transition-colors drop-shadow-sm">
+                  <h3 className="text-sm sm:text-base font-bold text-white font-serif line-clamp-1 group-hover/card:text-sky-300 transition-colors drop-shadow-sm">
                     {item.title}
                   </h3>
                   <p className="text-slate-200 text-[11px] sm:text-xs line-clamp-1 mt-0.5 drop-shadow-xs">
@@ -270,7 +265,7 @@ export const ScrollingGallerySection: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setActiveItem(null)}
-                className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/70 hover:bg-red-600 text-white flex items-center justify-center transition-all cursor-pointer shadow-lg"
+                className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/70 hover:bg-[#002e6d] hover:text-amber-300 text-white flex items-center justify-center transition-all cursor-pointer shadow-lg"
                 aria-label="Close modal"
               >
                 <X className="w-5 h-5" />

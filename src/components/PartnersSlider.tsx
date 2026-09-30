@@ -124,28 +124,32 @@ export const PartnersSlider: React.FC = () => {
   const marqueeItems = [...partnerLogos, ...partnerLogos, ...partnerLogos, ...partnerLogos];
 
   return (
-    <section className="py-8 sm:py-10 bg-white text-slate-900 relative overflow-hidden border-y border-slate-200/80 select-none">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-5 sm:mb-6 text-center relative z-10">
-        <span className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.2em] text-red-600 block mb-1">
+    <section className="py-10 sm:py-12 bg-gradient-to-r from-[#002e6d] via-[#0f3c85] to-[#002e6d] text-white relative overflow-hidden border-y border-white/15 select-none shadow-xl">
+      {/* Subtle Background Glow */}
+      <div className="absolute top-0 left-1/3 w-80 h-32 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 sm:mb-8 text-center relative z-10">
+        <span className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.22em] text-amber-300 block mb-1.5 drop-shadow-sm">
           Pedagogical Alliances &amp; Curriculum Partners
         </span>
-        <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 font-serif tracking-tight">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white font-serif tracking-tight drop-shadow-md">
           JRS INTERNATIONAL SCHOOL
         </h2>
+        <div className="w-16 h-1 bg-amber-400 mx-auto mt-3 rounded-full shadow-xs" />
       </div>
 
       {/* Infinite Scrolling Logo Cards Track */}
       <div className="relative w-full overflow-hidden">
-        {/* Soft Vignette Gradients on Edges matching white background */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-36 bg-gradient-to-r from-white via-white/80 to-transparent z-20 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-36 bg-gradient-to-l from-white via-white/80 to-transparent z-20 pointer-events-none" />
+        {/* Soft Vignette Gradients on Edges matching theme background */}
+        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-36 bg-gradient-to-r from-[#002e6d] via-[#002e6d]/80 to-transparent z-20 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-36 bg-gradient-to-l from-[#002e6d] via-[#002e6d]/80 to-transparent z-20 pointer-events-none" />
 
         {/* Marquee Track using GPU animation */}
         <div className="animate-gallery-left gallery-track flex gap-4 sm:gap-6 py-2">
           {marqueeItems.map((item, idx) => (
             <div
               key={`${item.id}-${idx}`}
-              className="w-[140px] sm:w-[170px] h-[90px] sm:h-[105px] rounded-2xl bg-white shadow-md hover:shadow-xl border border-slate-200/90 flex items-center justify-center p-3 shrink-0 hover:scale-105 transition-all duration-300 group cursor-pointer"
+              className="w-[145px] sm:w-[175px] h-[95px] sm:h-[110px] rounded-2xl bg-white shadow-lg hover:shadow-2xl border border-white/40 flex items-center justify-center p-3 shrink-0 hover:scale-105 hover:-translate-y-1 transition-all duration-300 group cursor-pointer"
             >
               <div className="w-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                 {item.renderLogo()}

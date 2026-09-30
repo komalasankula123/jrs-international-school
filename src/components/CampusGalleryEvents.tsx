@@ -3,7 +3,6 @@ import {
   Calendar, Clock, MapPin, ArrowRight, Sparkles, 
   ChevronRight, X, Trophy, Palette, BookOpen, PartyPopper 
 } from 'lucide-react';
-import { JRSRotatingLogoBg } from './JRSRotatingLogoBg';
 
 interface EventItem {
   id: number;
@@ -101,24 +100,21 @@ export const CampusGalleryEvents: React.FC = () => {
 
   return (
     <section id="events" className="py-8 sm:py-12 lg:py-14 bg-white relative overflow-hidden border-t border-slate-200/80">
-      {/* Decorative Rotating JRS Logo Background */}
-      <JRSRotatingLogoBg position="top-right" size="lg" opacity="opacity-15" />
-      <JRSRotatingLogoBg position="bottom-left" size="md" opacity="opacity-15" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10">
           <div className="space-y-3 max-w-2xl">
             <div className="flex items-center gap-2">
-              <span className="w-8 h-[3px] bg-red-600 rounded-full"></span>
-              <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-red-600">
+              <span className="w-8 h-[3px] bg-[var(--palette-secondary)] rounded-full"></span>
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-[var(--palette-secondary)]">
                 School Calendar &amp; Activities
               </span>
             </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-green-900 font-serif tracking-tight leading-snug">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[var(--palette-primary)] font-serif tracking-tight leading-snug">
               Latest Events &amp; Campus Happenings
             </h2>
-            <p className="text-black/85 text-sm sm:text-base leading-relaxed font-normal">
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
               Stay connected with upcoming student showcases, sports championships, and cultural celebrations at JRS.
             </p>
           </div>
@@ -134,11 +130,11 @@ export const CampusGalleryEvents: React.FC = () => {
                   onClick={() => setActiveCategory(cat.name as any)}
                   className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                     isActive
-                      ? 'bg-green-700 text-white shadow-sm'
-                      : 'text-black hover:text-green-700 hover:bg-slate-200/60'
+                      ? 'bg-[var(--palette-secondary)] text-white shadow-sm'
+                      : 'text-slate-700 hover:text-[var(--palette-secondary)] hover:bg-[var(--palette-light)]'
                   }`}
                 >
-                  <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-red-400' : 'text-slate-500'}`} />
+                  <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : 'text-slate-500'}`} />
                   <span>{cat.name}</span>
                 </button>
               );
@@ -163,26 +159,26 @@ export const CampusGalleryEvents: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
                 
-                {/* Red Featured Badge */}
-                <div className="absolute top-4 left-4 bg-red-600 text-white px-3.5 py-1 rounded-full text-xs font-black uppercase tracking-wider shadow-md flex items-center gap-1.5">
+                {/* Featured Badge */}
+                <div className="absolute top-4 left-4 bg-[var(--palette-secondary)] text-white px-3.5 py-1 rounded-full text-xs font-black uppercase tracking-wider shadow-md flex items-center gap-1.5">
                   <Sparkles className="w-3.5 h-3.5 text-white" />
                   <span>Featured Event</span>
                 </div>
 
                 {/* Floating Date Badge */}
                 <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-2xl shadow-lg text-center border border-white/40">
-                  <div className="text-[10px] font-black uppercase tracking-wider text-green-700">{featuredEvent.date.month}</div>
-                  <div className="text-xl font-extrabold text-black leading-none">{featuredEvent.date.day}</div>
+                  <div className="text-[10px] font-black uppercase tracking-wider text-[var(--palette-secondary)]">{featuredEvent.date.month}</div>
+                  <div className="text-xl font-extrabold text-slate-900 leading-none">{featuredEvent.date.day}</div>
                 </div>
               </div>
 
               {/* Card Body */}
               <div className="p-6 sm:p-7 space-y-4 flex-grow flex flex-col justify-between">
                 <div className="space-y-2.5">
-                  <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-green-50 text-green-800 border border-green-200 inline-block">
+                  <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[var(--palette-light)] text-[var(--palette-primary)] border border-[var(--palette-secondary)]/20 inline-block">
                     {featuredEvent.category}
                   </span>
-                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-black group-hover:text-green-800 transition-colors leading-snug">
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-slate-900 group-hover:text-[var(--palette-secondary)] transition-colors leading-snug">
                     {featuredEvent.title}
                   </h3>
                   <p className="text-slate-600 text-xs sm:text-sm leading-relaxed line-clamp-3">
@@ -191,22 +187,22 @@ export const CampusGalleryEvents: React.FC = () => {
                 </div>
 
                 {/* Event Meta Info */}
-                <div className="pt-4 border-t border-slate-100 space-y-2 text-xs text-black/80 font-medium">
+                <div className="pt-4 border-t border-slate-100 space-y-2 text-xs text-slate-700 font-medium">
                   <div className="flex items-center gap-2">
-                    <Clock className="w-3.5 h-3.5 text-red-500" />
+                    <Clock className="w-3.5 h-3.5 text-[var(--palette-secondary)]" />
                     <span>{featuredEvent.time}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <MapPin className="w-3.5 h-3.5 text-green-600" />
+                    <MapPin className="w-3.5 h-3.5 text-[var(--palette-primary)]" />
                     <span>{featuredEvent.venue}</span>
                   </div>
                 </div>
 
                 {/* Action CTA */}
                 <div className="pt-2">
-                  <div className="w-full py-2.5 px-4 rounded-xl bg-slate-50 group-hover:bg-green-700 text-black group-hover:text-white font-bold text-xs sm:text-sm transition-all flex items-center justify-between shadow-sm">
+                  <div className="w-full py-2.5 px-4 rounded-xl bg-slate-50 group-hover:bg-[var(--palette-primary)] text-slate-800 group-hover:text-white font-bold text-xs sm:text-sm transition-all flex items-center justify-between shadow-sm">
                     <span>View Event Details</span>
-                    <ArrowRight className="w-4 h-4 text-green-600 group-hover:text-white group-hover:translate-x-1 transition-all" />
+                    <ArrowRight className="w-4 h-4 text-[var(--palette-secondary)] group-hover:text-white group-hover:translate-x-1 transition-all" />
                   </div>
                 </div>
 
@@ -220,17 +216,22 @@ export const CampusGalleryEvents: React.FC = () => {
               <div
                 key={item.id}
                 onClick={() => setSelectedEvent(item)}
-                className="bg-white rounded-2xl p-4 sm:p-5 shadow-sm hover:shadow-xl border border-slate-200/90 hover:border-green-300 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 group cursor-pointer hover:-translate-y-0.5"
+                className="bg-white rounded-2xl p-4 sm:p-5 shadow-sm hover:shadow-xl border border-slate-200/90 hover:border-[var(--palette-secondary)] transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 group cursor-pointer hover:-translate-y-0.5"
               >
                 {/* Date Square */}
-                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-[#0c2444] to-green-800 text-white flex flex-col items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform">
-                  <span className="text-[11px] font-black uppercase tracking-wider text-red-400">
+                <div 
+                  className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl text-white flex flex-col items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform"
+                  style={{
+                    background: 'linear-gradient(135deg, var(--palette-primary) 0%, var(--palette-secondary) 100%)',
+                  }}
+                >
+                  <span className="text-[11px] font-black uppercase tracking-wider text-[var(--palette-light)]">
                     {item.date.month}
                   </span>
                   <span className="text-xl sm:text-2xl font-black leading-none text-white">
                     {item.date.day}
                   </span>
-                  <span className="text-[10px] text-slate-300 font-medium">
+                  <span className="text-[10px] text-white/80 font-medium">
                     {item.date.year}
                   </span>
                 </div>
@@ -238,27 +239,27 @@ export const CampusGalleryEvents: React.FC = () => {
                 {/* Event Details */}
                 <div className="flex-grow space-y-1.5 min-w-0">
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-md bg-green-50 text-green-800 group-hover:bg-green-700 group-hover:text-white transition-colors">
+                    <span className="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-md bg-[var(--palette-light)] text-[var(--palette-primary)] group-hover:bg-[var(--palette-secondary)] group-hover:text-white transition-colors">
                       {item.category}
                     </span>
                     <span className="text-[11px] text-slate-500 flex items-center gap-1 font-medium">
-                      <Clock className="w-3 h-3 text-red-500" />
+                      <Clock className="w-3 h-3 text-[var(--palette-secondary)]" />
                       {item.time}
                     </span>
                   </div>
 
-                  <h4 className="font-serif text-base sm:text-lg font-bold text-black group-hover:text-green-800 transition-colors leading-snug line-clamp-1">
+                  <h4 className="font-serif text-base sm:text-lg font-bold text-slate-900 group-hover:text-[var(--palette-secondary)] transition-colors leading-snug line-clamp-1">
                     {item.title}
                   </h4>
 
                   <div className="flex items-center gap-1.5 text-xs text-slate-600 font-medium line-clamp-1">
-                    <MapPin className="w-3.5 h-3.5 text-green-600 shrink-0" />
+                    <MapPin className="w-3.5 h-3.5 text-[var(--palette-secondary)] shrink-0" />
                     <span className="truncate">{item.venue}</span>
                   </div>
                 </div>
 
                 {/* Arrow Action */}
-                <div className="hidden sm:flex w-10 h-10 rounded-full bg-slate-50 group-hover:bg-green-700 items-center justify-center shrink-0 transition-all text-slate-400 group-hover:text-white">
+                <div className="hidden sm:flex w-10 h-10 rounded-full bg-slate-50 group-hover:bg-[var(--palette-primary)] items-center justify-center shrink-0 transition-all text-slate-400 group-hover:text-white">
                   <ChevronRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
                 </div>
               </div>
@@ -296,7 +297,7 @@ export const CampusGalleryEvents: React.FC = () => {
               </button>
 
               <div className="absolute bottom-3 left-4 right-4 text-white">
-                <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-red-600 text-white inline-block mb-1">
+                <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-500 text-slate-950 font-bold inline-block mb-1">
                   {selectedEvent.category}
                 </span>
                 <h3 className="font-serif text-lg sm:text-xl font-bold leading-tight">
@@ -308,28 +309,28 @@ export const CampusGalleryEvents: React.FC = () => {
             {/* Modal Content */}
             <div className="p-6 space-y-4">
               <div className="grid grid-cols-2 gap-3 p-3 bg-slate-50 rounded-2xl border border-slate-100 text-xs">
-                <div className="flex items-center gap-2 text-black font-semibold">
-                  <Calendar className="w-4 h-4 text-green-700" />
+                <div className="flex items-center gap-2 text-slate-900 font-semibold">
+                  <Calendar className="w-4 h-4 text-[#002e6d]" />
                   <span>{selectedEvent.date.day} {selectedEvent.date.month} {selectedEvent.date.year}</span>
                 </div>
-                <div className="flex items-center gap-2 text-black font-semibold">
-                  <Clock className="w-4 h-4 text-red-500" />
+                <div className="flex items-center gap-2 text-slate-900 font-semibold">
+                  <Clock className="w-4 h-4 text-amber-600" />
                   <span>{selectedEvent.time}</span>
                 </div>
-                <div className="col-span-2 flex items-center gap-2 text-black font-semibold">
-                  <MapPin className="w-4 h-4 text-green-700" />
+                <div className="col-span-2 flex items-center gap-2 text-slate-900 font-semibold">
+                  <MapPin className="w-4 h-4 text-[#002e6d]" />
                   <span>{selectedEvent.venue}</span>
                 </div>
               </div>
 
-              <p className="text-black/80 text-xs sm:text-sm leading-relaxed">
+              <p className="text-slate-700 text-xs sm:text-sm leading-relaxed">
                 {selectedEvent.description}
               </p>
 
               <div className="pt-2 flex items-center gap-3">
                 <button
                   onClick={() => setSelectedEvent(null)}
-                  className="flex-1 py-3 rounded-xl bg-green-700 hover:bg-green-800 text-white font-bold text-xs sm:text-sm transition-colors cursor-pointer shadow-md"
+                  className="flex-1 py-3 rounded-xl bg-[#002e6d] hover:bg-[#17479d] text-amber-300 font-bold text-xs sm:text-sm transition-colors cursor-pointer shadow-md"
                 >
                   Close
                 </button>

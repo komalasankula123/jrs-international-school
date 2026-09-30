@@ -1,6 +1,5 @@
 import React from 'react';
 import { Sparkles, ArrowRight, ShieldCheck, Award, GraduationCap } from 'lucide-react';
-import { JRSRotatingLogoBg } from './JRSRotatingLogoBg';
 
 interface StudentBannerCTAProps {
   onOpenAdmissionModal: () => void;
@@ -11,11 +10,6 @@ export const StudentBannerCTA: React.FC<StudentBannerCTAProps> = ({ onOpenAdmiss
     <section className="py-12 sm:py-16 lg:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal-on-scroll">
       {/* Horizontal Banner Container Inspired by Reference Design */}
       <div className="relative rounded-3xl sm:rounded-[2.5rem] bg-gradient-to-r from-[#071938] via-[#0d2c63] to-[#17479d] border border-blue-400/35 shadow-2xl overflow-hidden text-white">
-        
-        {/* JRS 3D Rotating Logo Orb in Background */}
-        <JRSRotatingLogoBg position="top-right" size="lg" opacity="opacity-20" isDark={true} />
-        <JRSRotatingLogoBg position="bottom-left" size="md" opacity="opacity-15" isDark={true} />
-
         {/* Ambient Radial Color Glows */}
         <div className="absolute top-0 right-1/3 w-96 h-96 bg-sky-500/15 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
