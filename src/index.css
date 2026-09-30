@@ -508,4 +508,45 @@
   background: #17479d;
 }
 
+/* Silky Smooth Hardware-Accelerated Gallery Marquee */
+@keyframes galleryScrollLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes galleryScrollRight {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-gallery-left {
+  display: flex;
+  width: max-content;
+  animation: galleryScrollLeft 42s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.animate-gallery-right {
+  display: flex;
+  width: max-content;
+  animation: galleryScrollRight 45s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.gallery-track:hover {
+  animation-play-state: paused;
+}
+
 

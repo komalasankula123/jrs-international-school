@@ -12,13 +12,13 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ onOpenAdmissionModal }) => {
   return (
-    <footer id="contact" className="bg-[#080d0a] text-slate-300 pt-16 pb-12 border-t border-slate-800 relative overflow-hidden">
+    <footer id="contact" className="bg-[#080d0a] text-slate-300 pt-10 pb-8 border-t border-slate-800 relative overflow-hidden">
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-green-500/5 rounded-full blur-[140px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-14 border-b border-slate-800/80">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 pb-8 border-b border-slate-800/80">
           
           {/* Col 1: Brand & Bio (4 cols) */}
           <div className="lg:col-span-4 space-y-5">

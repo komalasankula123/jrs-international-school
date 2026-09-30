@@ -40,16 +40,6 @@ export const navigationData: NavItem[] = [
     ],
   },
   {
-    name: "Campus & Life",
-    href: "#features",
-    children: [
-      { name: "Campus Infrastructure", href: "#features", desc: "Smart classrooms & labs" },
-      { name: "Sports & Swimming Pool", href: "#features", desc: "Athletic track & courts" },
-      { name: "Arts & Performing Arts", href: "#features", desc: "Music, dance & drama" },
-      { name: "Safe Transport", href: "#contact", desc: "GPS-enabled school buses" },
-    ],
-  },
-  {
     name: "Events",
     href: "#events",
   },

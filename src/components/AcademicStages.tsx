@@ -66,7 +66,7 @@ export const AcademicStages: React.FC<AcademicStagesProps> = ({ onOpenAdmissionM
   return (
     <section 
       id="academic-stages" 
-      className="relative bg-[#f8fafc] w-full py-16 sm:py-20 lg:py-24 border-b border-slate-200/80 overflow-hidden"
+      className="relative bg-[#f8fafc] w-full py-8 sm:py-12 lg:py-14 border-b border-slate-200/80 overflow-hidden"
     >
       {/* Decorative Rotating JRS Logo Background */}
       <JRSRotatingLogoBg position="top-right" size="lg" opacity="opacity-15" />

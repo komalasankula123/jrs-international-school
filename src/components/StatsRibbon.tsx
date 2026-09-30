@@ -72,9 +72,9 @@ export const StatsRibbon: React.FC = () => {
   ];
 
   return (
-    <section className="relative z-20 py-10 sm:py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative z-20 py-5 sm:py-7 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Luxury Royal Blue & Forest Green Gradient Ribbon */}
-      <div className="relative rounded-3xl bg-gradient-to-r from-[#091b36] via-[#0a3528] to-[#0c2347] border border-sky-500/30 shadow-2xl py-8 sm:py-10 px-6 sm:px-10 lg:px-12 backdrop-blur-xl overflow-hidden ring-1 ring-white/10">
+      <div className="relative rounded-3xl bg-gradient-to-r from-[#091b36] via-[#0a3528] to-[#0c2347] border border-sky-500/30 shadow-2xl py-6 sm:py-7 px-6 sm:px-10 lg:px-12 backdrop-blur-xl overflow-hidden ring-1 ring-white/10">
         
         {/* Animated JRS Logo in Ribbon */}
         <JRSRotatingLogoBg position="middle-right" size="sm" opacity="opacity-30" isDark={true} />

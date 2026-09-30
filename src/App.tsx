@@ -6,6 +6,7 @@ import { FourFeatureCards } from './components/FourFeatureCards';
 import { StatsRibbon } from './components/StatsRibbon';
 import { AcademicStages } from './components/AcademicStages';
 import { CampusGalleryEvents } from './components/CampusGalleryEvents';
+import { ScrollingGallerySection } from './components/ScrollingGallerySection';
 import { EnquiryFormSection } from './components/EnquiryFormSection';
 import { Footer } from './components/Footer';
 import { 
@@ -51,8 +52,10 @@ export function App() {
         {/* 6. Glimpses of JRS (Photo Grid) & Latest Events Panel */}
         <CampusGalleryEvents />
 
+        {/* 7. Life at JRS Infinite Scrolling Photo Gallery */}
+        <ScrollingGallerySection />
 
-        {/* 5. Online Admission Enquiry Form (Directly Above Footer) */}
+        {/* 8. Online Admission Enquiry Form (Directly Above Footer) */}
         <EnquiryFormSection />
       </main>
 

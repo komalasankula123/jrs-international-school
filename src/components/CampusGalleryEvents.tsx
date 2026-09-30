@@ -100,14 +100,14 @@ export const CampusGalleryEvents: React.FC = () => {
   const featuredEvent = eventsData.find(e => e.isFeatured) || eventsData[0];
 
   return (
-    <section id="events" className="py-16 sm:py-20 lg:py-24 bg-white relative overflow-hidden border-t border-slate-200/80">
+    <section id="events" className="py-8 sm:py-12 lg:py-14 bg-white relative overflow-hidden border-t border-slate-200/80">
       {/* Decorative Rotating JRS Logo Background */}
       <JRSRotatingLogoBg position="top-right" size="lg" opacity="opacity-15" />
       <JRSRotatingLogoBg position="bottom-left" size="md" opacity="opacity-15" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10">
           <div className="space-y-3 max-w-2xl">
             <div className="flex items-center gap-2">
               <span className="w-8 h-[3px] bg-red-600 rounded-full"></span>

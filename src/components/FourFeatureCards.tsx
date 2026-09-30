@@ -75,7 +75,7 @@ export const FourFeatureCards: React.FC = () => {
   };
 
   return (
-    <section className="py-16 sm:py-20 bg-gradient-to-b from-slate-50/60 via-white to-slate-50/40 relative overflow-hidden border-t border-slate-100">
+    <section className="py-8 sm:py-12 bg-gradient-to-b from-slate-50/60 via-white to-slate-50/40 relative overflow-hidden border-t border-slate-100">
       {/* Decorative Rotating JRS Logo Background */}
       <JRSRotatingLogoBg position="top-left" size="lg" opacity="opacity-15" />
       <JRSRotatingLogoBg position="bottom-right" size="md" opacity="opacity-10" />
@@ -91,7 +91,7 @@ export const FourFeatureCards: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-12 sm:mb-14"
+          className="text-center max-w-3xl mx-auto mb-8 sm:mb-10"
         >
           {/* Eyebrow in Theme Red */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-50 border border-red-200/80 text-red-600 text-xs sm:text-sm font-extrabold uppercase tracking-wider mb-3 shadow-xs">

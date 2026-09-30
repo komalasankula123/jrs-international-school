@@ -19,7 +19,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
   };
 
   return (
-    <section id="about" className="py-14 sm:py-20 bg-white relative overflow-hidden">
+    <section id="about" className="py-8 sm:py-12 bg-white relative overflow-hidden">
       {/* Decorative Rotating JRS Logo Background */}
       <JRSRotatingLogoBg position="bottom-right" size="lg" opacity="opacity-20" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
