@@ -74,7 +74,7 @@ export const FourFeatureCards: React.FC = () => {
   };
 
   return (
-    <section className="py-8 sm:py-12 bg-gradient-to-b from-slate-50/60 via-white to-slate-50/40 relative overflow-hidden border-t border-slate-100">
+    <section id="features" className="py-7 sm:py-9 lg:py-10 bg-gradient-to-b from-slate-50/60 via-white to-slate-50/40 relative overflow-hidden border-t border-slate-100">
       {/* Subtle decorative background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[350px] bg-rose-50/50 blur-3xl pointer-events-none rounded-full" />
 
@@ -85,22 +85,22 @@ export const FourFeatureCards: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-8 sm:mb-10"
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-3xl mx-auto mb-5 sm:mb-6 space-y-1.5"
         >
           {/* Eyebrow in Deep Yellow */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-50 border border-amber-300 text-amber-800 text-xs sm:text-sm font-extrabold uppercase tracking-wider mb-3 shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-            <span>Discover JRS School</span>
-          </div>
+          <span className="text-[#002e6d] text-[11px] font-extrabold uppercase tracking-[0.2em] px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 inline-block shadow-2xs">
+            Discover JRS School
+          </span>
 
           {/* Main Title in Black */}
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-black tracking-tight font-serif mb-3">
+          <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
             Pillars of Educational Excellence
           </h2>
+          <div className="w-10 h-1 bg-amber-400 mx-auto rounded-full" />
 
           {/* Subtitle */}
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-2xl mx-auto">
+          <p className="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-xl mx-auto font-normal">
             Hover over any pillar to explore how our academic rigor, holistic values, modern infrastructure, and student leadership shape tomorrow's pioneers.
           </p>
         </motion.div>
@@ -178,13 +178,6 @@ export const FourFeatureCards: React.FC = () => {
               </motion.div>
             );
           })}
-        </div>
-
-        {/* Bottom Description Paragraph */}
-        <div className="max-w-4xl mx-auto text-center px-4 pt-4 border-t border-slate-200/60">
-          <p className="text-slate-700 text-sm sm:text-base leading-relaxed font-normal">
-            <span className="font-bold text-slate-950">JRS International School</span> has been committed to the promotion of education and human values since 2021. It strives to enhance inherent skills and empower the physical, emotional, and intellectual faculties of its students through comprehensive quality education, incorporating global trends with Indian ethos.
-          </p>
         </div>
 
       </div>

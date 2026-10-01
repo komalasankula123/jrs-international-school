@@ -21,13 +21,13 @@ export const navigationData: NavItem[] = [
   },
   {
     name: "Academics",
-    href: "#stages",
+    href: "#academic-stages",
     children: [
-      { name: "CBSE Curriculum", href: "#stages", desc: "NCERT aligned holistic syllabus" },
-      { name: "Pre-Primary (Nursery - UKG)", href: "#stages", desc: "Foundational stage" },
-      { name: "Primary (Grades 1 - 5)", href: "#stages", desc: "Core literacy & numeracy" },
-      { name: "Middle (Grades 6 - 8)", href: "#stages", desc: "STEM & specialization" },
-      { name: "Secondary (Grades 9 - 10)", href: "#stages", desc: "CBSE Board preparation" },
+      { name: "CBSE Curriculum", href: "#academic-stages", desc: "NCERT aligned holistic syllabus" },
+      { name: "Pre-Primary (Nursery - UKG)", href: "#academic-stages", desc: "Foundational stage" },
+      { name: "Primary (Grades 1 - 5)", href: "#academic-stages", desc: "Core literacy & numeracy" },
+      { name: "Middle (Grades 6 - 8)", href: "#academic-stages", desc: "STEM & specialization" },
+      { name: "Holistic Growth (Beyond Books)", href: "#holistic-growth", desc: "Arts, sports & robotics" },
     ],
   },
   {

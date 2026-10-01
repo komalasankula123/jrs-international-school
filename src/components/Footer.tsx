@@ -14,7 +14,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmissionModal }) => {
   return (
     <footer 
       id="contact" 
-      className="text-slate-300 pt-10 pb-8 border-t border-white/10 relative overflow-hidden"
+      className="text-slate-300 pt-7 pb-6 border-t border-white/10 relative overflow-hidden"
       style={{
         background: 'linear-gradient(180deg, #030a17 0%, #01040a 100%)',
       }}
@@ -102,27 +102,55 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmissionModal }) => {
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm">
               <li>
-                <a href="#about" className="hover:text-sky-300 transition-colors flex items-center gap-1.5">
-                  <ArrowRight className="w-3 h-3 text-[var(--palette-secondary)]" />
+                <a 
+                  href="#about" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="hover:text-amber-300 text-slate-300 transition-colors flex items-center gap-1.5 group/link"
+                >
+                  <ArrowRight className="w-3.5 h-3.5 text-amber-400 group-hover/link:translate-x-1 transition-transform" />
                   <span>About JRS</span>
                 </a>
               </li>
               <li>
-                <a href="#academic-stages" className="hover:text-sky-300 transition-colors flex items-center gap-1.5">
-                  <ArrowRight className="w-3 h-3 text-[var(--palette-secondary)]" />
+                <a 
+                  href="#academic-stages" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.querySelector('#academic-stages')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="hover:text-amber-300 text-slate-300 transition-colors flex items-center gap-1.5 group/link"
+                >
+                  <ArrowRight className="w-3.5 h-3.5 text-amber-400 group-hover/link:translate-x-1 transition-transform" />
                   <span>CBSE Curriculum</span>
                 </a>
               </li>
               <li>
-                <a href="#events" className="hover:text-sky-300 transition-colors flex items-center gap-1.5">
-                  <ArrowRight className="w-3 h-3 text-[var(--palette-secondary)]" />
-                  <span>Latest Events</span>
+                <a 
+                  href="#events" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.querySelector('#events')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="hover:text-amber-300 text-slate-300 transition-colors flex items-center gap-1.5 group/link"
+                >
+                  <ArrowRight className="w-3.5 h-3.5 text-amber-400 group-hover/link:translate-x-1 transition-transform" />
+                  <span>Occasions &amp; Events</span>
                 </a>
               </li>
               <li>
-                <a href="#enquiry-form" className="hover:text-sky-300 transition-colors flex items-center gap-1.5">
-                  <ArrowRight className="w-3 h-3 text-[var(--palette-secondary)]" />
-                  <span>Admissions 2026-27</span>
+                <a 
+                  href="#enquiry-form" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.querySelector('#enquiry-form')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="hover:text-amber-300 text-slate-300 transition-colors flex items-center gap-1.5 group/link"
+                >
+                  <ArrowRight className="w-3.5 h-3.5 text-amber-400 group-hover/link:translate-x-1 transition-transform" />
+                  <span>Admissions 2026–27</span>
                 </a>
               </li>
               <li>
@@ -130,9 +158,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmissionModal }) => {
                   href={contactDetails.prospectusUrl} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="hover:text-sky-300 transition-colors flex items-center gap-1.5"
+                  className="hover:text-amber-300 text-slate-300 transition-colors flex items-center gap-1.5 group/link"
                 >
-                  <FileText className="w-3 h-3 text-[var(--palette-secondary)]" />
+                  <FileText className="w-3.5 h-3.5 text-amber-400 group-hover/link:scale-110 transition-transform" />
                   <span>Download Prospectus</span>
                 </a>
               </li>
@@ -146,11 +174,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmissionModal }) => {
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm">
               <li className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-sky-400 shrink-0" />
+                <ShieldCheck className="w-4 h-4 text-amber-400 shrink-0" />
                 <span>Affiliation No: 3630397</span>
               </li>
               <li className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-sky-400 shrink-0" />
+                <ShieldCheck className="w-4 h-4 text-amber-400 shrink-0" />
                 <span>School Code: 57912</span>
               </li>
               <li className="pt-2">
@@ -158,7 +186,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmissionModal }) => {
                   href="https://jrsinternationalschooluppal.com/cbse/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-[var(--palette-secondary)] text-white font-semibold text-xs transition-colors"
+                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-amber-400 hover:text-slate-950 text-white font-semibold text-xs transition-colors"
                 >
                   <span>Mandatory Public Disclosure</span>
                   <ArrowRight className="w-3 h-3" />
@@ -174,19 +202,23 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmissionModal }) => {
             </h4>
             <div className="space-y-3 text-xs sm:text-sm">
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-sky-400 shrink-0 mt-1" />
+                <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-1" />
                 <span>{contactDetails.address}</span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-sky-400 shrink-0" />
-                <span>{contactDetails.phones[0]}</span>
+                <Phone className="w-4 h-4 text-amber-400 shrink-0" />
+                <a href={`tel:${contactDetails.phones[0]}`} className="hover:text-white transition-colors">
+                  {contactDetails.phones[0]}
+                </a>
               </div>
               <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-sky-400 shrink-0" />
-                <span>{contactDetails.email}</span>
+                <Mail className="w-4 h-4 text-amber-400 shrink-0" />
+                <a href={`mailto:${contactDetails.email}`} className="hover:text-white transition-colors">
+                  {contactDetails.email}
+                </a>
               </div>
               <div className="flex items-center gap-2.5">
-                <Clock className="w-4 h-4 text-sky-400 shrink-0" />
+                <Clock className="w-4 h-4 text-amber-400 shrink-0" />
                 <span>{contactDetails.timing}</span>
               </div>
             </div>
@@ -202,14 +234,17 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmissionModal }) => {
           <div className="flex items-center gap-4">
             <button
               onClick={onOpenAdmissionModal}
-              className="text-[var(--palette-light)] hover:text-white font-semibold cursor-pointer"
+              className="text-amber-400 hover:text-amber-300 font-semibold cursor-pointer"
             >
               Online Admission Form
             </button>
             <span>•</span>
-            <a href="#about" className="hover:text-white">
+            <button 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
+              className="hover:text-white cursor-pointer transition-colors"
+            >
               Back to Top ↑
-            </a>
+            </button>
           </div>
         </div>
 

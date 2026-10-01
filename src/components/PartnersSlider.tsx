@@ -124,18 +124,18 @@ export const PartnersSlider: React.FC = () => {
   const marqueeItems = [...partnerLogos, ...partnerLogos, ...partnerLogos, ...partnerLogos];
 
   return (
-    <section className="py-10 sm:py-12 bg-gradient-to-r from-[#002e6d] via-[#0f3c85] to-[#002e6d] text-white relative overflow-hidden border-y border-white/15 select-none shadow-xl">
+    <section id="partners" className="py-7 sm:py-9 lg:py-10 bg-gradient-to-r from-[#002e6d] via-[#0f3c85] to-[#002e6d] text-white relative overflow-hidden border-y border-white/15 select-none shadow-xl">
       {/* Subtle Background Glow */}
       <div className="absolute top-0 left-1/3 w-80 h-32 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 sm:mb-8 text-center relative z-10">
-        <span className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.22em] text-amber-300 block mb-1.5 drop-shadow-sm">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-5 sm:mb-6 text-center relative z-10 space-y-1.5">
+        <span className="text-amber-300 text-[11px] font-extrabold uppercase tracking-[0.2em] px-3.5 py-1 rounded-full bg-white/10 border border-white/20 inline-block shadow-2xs">
           Pedagogical Alliances &amp; Curriculum Partners
         </span>
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white font-serif tracking-tight drop-shadow-md">
-          JRS INTERNATIONAL SCHOOL
+        <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight drop-shadow-md">
+          Global Learning Ecosystem
         </h2>
-        <div className="w-16 h-1 bg-amber-400 mx-auto mt-3 rounded-full shadow-xs" />
+        <div className="w-10 h-1 bg-amber-400 mx-auto rounded-full shadow-xs" />
       </div>
 
       {/* Infinite Scrolling Logo Cards Track */}

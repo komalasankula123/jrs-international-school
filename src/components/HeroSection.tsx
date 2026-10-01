@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone } from 'lucide-react';
+import { MapPin, Phone, ChevronDown } from 'lucide-react';
 
 interface HeroSectionProps {
   onOpenAdmissionModal?: () => void;
@@ -13,6 +13,14 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
       announcement: 'Admissions Open for 2026-2027 (Nursery to VIII Grade)',
     },
   ];
+
+  const handleScrollToAbout = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const el = document.querySelector('#about');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section className="relative w-full bg-[#002e6d] overflow-hidden select-none border-b border-slate-200">
@@ -30,44 +38,32 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
         </div>
 
         {/* Subtle Ambient Lighting Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/35 pointer-events-none" />
 
         {/* Top Spacer for Navbar */}
         <div className="pt-14 sm:pt-16 lg:pt-20" />
 
-        {/* Hero Body Middle Area: Clean Campus View with Golden Scroll Down Indicator */}
-        <div className="flex-1 flex flex-col items-center justify-end text-center px-4 sm:px-6 relative z-10 py-4">
-          <div className="pb-2 sm:pb-4">
-            {/* Interactive Animated Golden Scroll Down Indicator */}
-            <a
-              href="#about"
-              className="flex flex-col items-center group cursor-pointer transition-transform hover:scale-105"
-              aria-label="Scroll down to About section"
-            >
-              {/* Golden Mouse Shape */}
-              <div className="w-6 h-10 sm:w-7 sm:h-11 rounded-full border-2 border-amber-400/90 group-hover:border-amber-300 flex justify-center pt-1.5 shadow-[0_0_12px_rgba(245,158,11,0.4)] backdrop-blur-xs bg-black/20">
-                <div className="w-1.5 h-2.5 bg-amber-400 rounded-full animate-bounce" />
-              </div>
+        {/* Hero Body Bottom Area: Luxury Minimalist Scroll Indicator */}
+        <div className="flex-1 flex flex-col items-center justify-end text-center px-4 sm:px-6 relative z-10 pb-4 sm:pb-5">
+          <a
+            href="#about"
+            onClick={handleScrollToAbout}
+            className="flex flex-col items-center group cursor-pointer transition-all duration-300 hover:scale-110 select-none"
+            aria-label="Scroll down to explore"
+          >
+            {/* Transparent Outline Capsule with Glowing Gold Sliding Bead */}
+            <div className="w-5 h-9 sm:w-6 sm:h-10 rounded-full border-[1.5px] border-white/80 group-hover:border-amber-400 flex justify-center pt-1.5 transition-colors shadow-[0_4px_16px_rgba(0,0,0,0.6)] bg-black/25 backdrop-blur-xs">
+              <div className="w-1.5 h-2 bg-gradient-to-b from-amber-300 to-amber-500 rounded-full animate-bounce shadow-[0_0_8px_#f59e0b]" />
+            </div>
 
-              {/* Animated Chevrons */}
-              <div className="flex flex-col items-center -space-y-1.5 my-1.5 text-amber-400">
-                <svg className="w-3.5 h-3.5 stroke-current stroke-2 fill-none animate-pulse" viewBox="0 0 24 24">
-                  <path d="M6 9l6 6 6-6" />
-                </svg>
-                <svg className="w-3.5 h-3.5 stroke-current stroke-2 fill-none animate-pulse" viewBox="0 0 24 24" style={{ animationDelay: '150ms' }}>
-                  <path d="M6 9l6 6 6-6" />
-                </svg>
-                <svg className="w-3.5 h-3.5 stroke-current stroke-2 fill-none animate-pulse" viewBox="0 0 24 24" style={{ animationDelay: '300ms' }}>
-                  <path d="M6 9l6 6 6-6" />
-                </svg>
-              </div>
-
-              {/* Text Label */}
-              <span className="text-amber-400 group-hover:text-amber-300 text-[10px] sm:text-[11px] font-extrabold tracking-[0.25em] uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
-                SCROLL DOWN
+            {/* Micro Caption & Animated Chevron */}
+            <div className="flex flex-col items-center mt-1.5 text-white/90 group-hover:text-amber-300 transition-colors">
+              <span className="text-[9px] sm:text-[10px] font-extrabold tracking-[0.3em] uppercase text-white/95 group-hover:text-amber-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+                SCROLL
               </span>
-            </a>
-          </div>
+              <ChevronDown className="w-3.5 h-3.5 -mt-0.5 text-amber-400 animate-pulse" />
+            </div>
+          </a>
         </div>
 
         {/* 4. Bottom Full-Width Navy Location & Contact Marquee Strip */}

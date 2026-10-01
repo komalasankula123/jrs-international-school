@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, BookOpen, Rocket, Award, CheckCircle2, ArrowUpRight } from 'lucide-react';
+import { Sparkles, BookOpen, Rocket, Award, CheckCircle2, ArrowUpRight, ArrowRight } from 'lucide-react';
 
 interface AcademicStagesProps {
   onOpenAdmissionModal?: () => void;
@@ -10,10 +10,8 @@ interface StageItem {
   id: string;
   stageName: string;
   grades: string;
-  ageGroup: string;
   title: string;
-  badge: string;
-  description: string;
+  tagline: string;
   image: string;
   icon: React.ElementType;
   highlights: string[];
@@ -22,159 +20,189 @@ interface StageItem {
 const stagesData: StageItem[] = [
   {
     id: 'pre-primary',
-    stageName: 'Pre-Primary',
-    grades: 'Nursery – UKG',
-    ageGroup: 'Ages 3 – 5',
+    stageName: 'PRE-PRIMARY',
+    grades: 'NURSERY – UKG',
     title: 'Foundational Years',
-    badge: 'Play-Way & Phonics',
-    description: 'Nurturing curiosity, joy, and sensory motor development in a caring, vibrant, child-centric wonderland.',
-    image: '/two-school-girls.jpg',
+    tagline: 'Ages 3 – 5 • Play-Way & Phonics',
+    image: '/jrs-school-bus.jpg',
     icon: Sparkles,
-    highlights: ['Activity-Based Learning', 'Phonics & Early Numbers', 'Sensory & Creative Play'],
+    highlights: [
+      'Activity-Based Learning',
+      'Phonics & Early Numbers',
+      'Sensory & Creative Play',
+    ],
   },
   {
     id: 'primary',
-    stageName: 'Primary Stage',
-    grades: 'Grades I – V',
-    ageGroup: 'Ages 6 – 10',
+    stageName: 'PRIMARY STAGE',
+    grades: 'GRADES I – V',
     title: 'Preparatory Excellence',
-    badge: 'Concept Discovery',
-    description: 'Building strong foundational skills in languages, mathematics, environmental inquiry, and digital literacy.',
-    image: '/jrs-classroom-study.png',
+    tagline: 'Ages 6 – 10 • Concept Discovery',
+    image: '/jrs-library-reading.png',
     icon: BookOpen,
-    highlights: ['NCERT Concept Mastery', 'Interactive Smart Classes', '1:15 Faculty Mentoring'],
+    highlights: [
+      'NCERT Concept Mastery',
+      'Interactive Smart Classes',
+      '1:15 Faculty Mentoring',
+    ],
   },
   {
     id: 'middle',
-    stageName: 'Middle School',
-    grades: 'Grades VI – VIII',
-    ageGroup: 'Ages 11 – 14',
+    stageName: 'MIDDLE SCHOOL',
+    grades: 'GRADES VI – VIII',
     title: 'Middle School Rigor',
-    badge: 'STEM & Analytical',
-    description: 'Transitioning into advanced analytical thinking, experiential science labs, robotics coding, and athletic sports.',
-    image: '/event-science-expo.jpg',
+    tagline: 'Ages 11 – 14 • STEM & Analytical',
+    image: '/jrs-student-writing.png',
     icon: Rocket,
-    highlights: ['STEM Robotics Labs', 'Language Olympiads & Debates', 'Scientific Inquiry Hub'],
+    highlights: [
+      'STEM Robotics Labs',
+      'Language Olympiads & Debates',
+      'Scientific Inquiry Hub',
+    ],
   },
   {
     id: 'holistic',
-    stageName: 'Beyond Academics',
-    grades: 'All Grades',
-    ageGroup: '360° Growth',
+    stageName: 'BEYOND ACADEMICS',
+    grades: 'ALL GRADES',
     title: 'Holistic Leadership',
-    badge: 'Sports & Arts',
-    description: 'Fostering disciplined character, teamwork, fine arts, and democratic student governance on our 10+ acre campus.',
-    image: '/event-sports-meet.jpg',
+    tagline: '360° Growth • Sports & Arts',
+    image: '/jrs-campus-walk.jpg',
     icon: Award,
-    highlights: ['Athletic Arena & Sports', 'Performing Arts & Choir', 'Student Council Leadership'],
+    highlights: [
+      'Athletic Arena & Sports',
+      'Performing Arts & Choir',
+      'Student Council Leadership',
+    ],
   },
 ];
 
 export const AcademicStages: React.FC<AcademicStagesProps> = ({ onOpenAdmissionModal }) => {
   const scrollToSection = (sectionId: string) => {
-    const el = document.getElementById(sectionId);
+    const el = document.getElementById(sectionId) || document.querySelector(sectionId);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
-    <section id="academic-stages" className="py-8 sm:py-12 bg-slate-50 relative overflow-hidden border-b border-slate-200/80">
-      {/* Ambient background glows */}
-      <div className="absolute top-0 right-1/4 w-72 h-72 bg-blue-100/40 rounded-full blur-3xl pointer-events-none" />
+    <section 
+      id="academic-stages" 
+      className="py-7 sm:py-9 lg:py-10 bg-slate-50/80 relative overflow-hidden border-y border-slate-200"
+    >
+      {/* Decorative ambient background glows */}
+      <div className="absolute top-0 right-1/4 w-72 h-72 bg-blue-100/50 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-amber-100/30 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
-          <span className="text-[#002e6d] text-[10.5px] sm:text-xs font-extrabold uppercase tracking-[0.2em] px-3 py-1 rounded-full bg-blue-50 border border-blue-200 inline-block mb-2 shadow-2xs">
-            Curriculum &amp; Learning Stages
+        {/* Section Header with Royal Blue & Gold Index Theme */}
+        <div className="text-center max-w-2xl mx-auto mb-5 sm:mb-6 space-y-1.5">
+          <span className="text-[#002e6d] text-[11px] font-extrabold uppercase tracking-[0.2em] px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 inline-block shadow-2xs">
+            Curated Academic Pathways
           </span>
-          <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-slate-900 tracking-tight font-serif leading-tight">
-            Academic Pathways at JRS
+          <h2 className="font-serif text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-slate-900 tracking-tight leading-tight">
+            Learning Beyond the Ordinary
           </h2>
-          <div className="w-10 h-1 bg-amber-400 mx-auto mt-2 mb-2.5 rounded-full" />
-          <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
+          <div className="w-10 h-1 bg-amber-400 mx-auto rounded-full" />
+          <p className="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-xl mx-auto font-normal">
             A progressive CBSE learning journey designed to ignite curiosity, cultivate critical thinking, and build confident future leaders.
           </p>
         </div>
 
-        {/* 4-Card Stage Grid with Compact Equal Proportions */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4 items-stretch">
+        {/* 4 Compact Streamlined Stage Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4 lg:gap-5 items-stretch">
           {stagesData.map((stage, idx) => {
             const Icon = stage.icon;
+            
+            // Custom focal points for each original school photo
+            const imagePosition = 
+              stage.id === 'pre-primary' ? 'object-[center_20%]' :
+              stage.id === 'middle' ? 'object-[center_20%]' :
+              stage.id === 'holistic' ? 'object-[center_15%]' :
+              'object-center';
+
             return (
               <motion.div
                 key={stage.id}
-                initial={{ opacity: 0, y: 14 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.35, delay: idx * 0.06 }}
-                className="group bg-white rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 h-full"
+                onClick={onOpenAdmissionModal || (() => scrollToSection('#enquiry-form'))}
+                className="group bg-white rounded-2xl p-2.5 sm:p-3 pb-3.5 sm:pb-4 shadow-sm hover:shadow-xl border border-slate-200/90 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between cursor-pointer select-none"
               >
-                {/* 1. Equal Top Image Banner (Compact 50% Proportion) */}
-                <div className="relative h-40 sm:h-44 lg:h-48 w-full overflow-hidden bg-slate-900 shrink-0">
-                  <img
-                    src={stage.image}
-                    alt={stage.title}
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-black/20 to-transparent" />
+                <div>
+                  {/* 1. Compact Image Container */}
+                  <div className="relative w-full h-[180px] sm:h-[195px] lg:h-[210px] rounded-xl overflow-hidden bg-slate-900 shadow-inner border border-slate-100">
+                    <img
+                      src={stage.image}
+                      alt={stage.title}
+                      className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ${imagePosition}`}
+                      loading="lazy"
+                    />
+                    
+                    {/* Bottom Vignette */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
 
-                  {/* Stage Grade Tag */}
-                  <div className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-white/95 backdrop-blur-md text-[#002e6d] text-[10px] font-extrabold uppercase tracking-wider shadow-xs">
-                    {stage.grades}
-                  </div>
-
-                  {/* Icon Badge */}
-                  <div className="absolute bottom-2.5 left-2.5 flex items-center gap-1.5 text-white">
-                    <div className="w-6 h-6 rounded-md bg-[#002e6d] text-amber-300 flex items-center justify-center shadow-xs">
-                      <Icon className="w-3.5 h-3.5" />
-                    </div>
-                    <div>
-                      <div className="text-[11px] font-black uppercase text-amber-300 tracking-wider leading-none">{stage.stageName}</div>
-                      <div className="text-[9px] text-white/80 font-medium">{stage.ageGroup}</div>
+                    {/* Top Grade Tag */}
+                    <div className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-white/95 backdrop-blur-md text-[#002e6d] text-[9.5px] font-black uppercase tracking-wider shadow-xs border border-slate-200/60">
+                      {stage.grades}
                     </div>
                   </div>
-                </div>
 
-                {/* 2. Equal Bottom Content Area (Compact 50% Proportion) */}
-                <div className="p-3.5 sm:p-4 flex-1 flex flex-col justify-between bg-white">
-                  <div className="space-y-1.5">
-                    <h3 className="text-sm sm:text-base font-serif font-bold text-slate-900 group-hover:text-[#17479d] transition-colors leading-snug">
+                  {/* 2. Overlapping Circular Icon Badge */}
+                  <div className="relative z-10 -mt-5 mx-auto flex justify-center">
+                    <div className="w-10 h-10 rounded-full bg-[#002e6d] group-hover:bg-amber-400 text-amber-300 group-hover:text-slate-950 border-[3px] border-white flex items-center justify-center shadow-md transition-all duration-300 group-hover:scale-110">
+                      <Icon className="w-4 h-4" />
+                    </div>
+                  </div>
+
+                  {/* 3. Text & Details Below (Compact Size) */}
+                  <div className="text-center mt-2 px-1 space-y-0.5">
+                    <div className="text-[10px] font-extrabold uppercase tracking-wider text-amber-600">
+                      {stage.stageName}
+                    </div>
+                    <h3 className="font-serif text-sm sm:text-[15px] font-bold text-slate-900 group-hover:text-[#002e6d] transition-colors leading-snug">
                       {stage.title}
                     </h3>
-                    <p className="text-[11px] text-slate-600 leading-relaxed font-normal line-clamp-2 min-h-[32px]">
-                      {stage.description}
+                    <p className="text-[10.5px] text-slate-500 font-medium pb-1">
+                      {stage.tagline}
                     </p>
 
-                    {/* Highlights List */}
-                    <div className="space-y-1 pt-1.5 border-t border-slate-100">
+                    {/* Highlights Bullet List */}
+                    <div className="space-y-1 pt-2 border-t border-slate-100 text-left">
                       {stage.highlights.map((point, pIdx) => (
-                        <div key={pIdx} className="flex items-start gap-1.5 text-[10.5px] sm:text-[11px] text-slate-700 font-medium">
+                        <div key={pIdx} className="flex items-start gap-1.5 text-[10.5px] text-slate-700 font-medium leading-tight">
                           <CheckCircle2 className="w-3 h-3 text-amber-500 shrink-0 mt-0.5" />
                           <span className="truncate">{point}</span>
                         </div>
                       ))}
                     </div>
                   </div>
+                </div>
 
-                  {/* Action Link */}
-                  <div className="pt-3 mt-1.5">
-                    <button
-                      onClick={onOpenAdmissionModal || (() => scrollToSection('enquiry-form'))}
-                      className="w-full py-2 px-3 rounded-lg bg-slate-50 hover:bg-[#002e6d] text-[#002e6d] hover:text-white border border-slate-200 hover:border-[#002e6d] text-[11px] font-bold transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer group/btn shadow-2xs"
-                    >
-                      <span>Apply for {stage.stageName}</span>
-                      <ArrowUpRight className="w-3 h-3 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-                    </button>
+                {/* 4. Action CTA Button on Bottom */}
+                <div className="pt-2.5 mt-2 border-t border-slate-100">
+                  <div className="w-full py-1.5 px-2.5 rounded-lg bg-slate-50 group-hover:bg-[#002e6d] text-[#002e6d] group-hover:text-white border border-slate-200 group-hover:border-[#002e6d] text-[11px] font-bold transition-all duration-200 flex items-center justify-center gap-1 shadow-2xs">
+                    <span>Apply for {stage.title}</span>
+                    <ArrowUpRight className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </div>
                 </div>
+
               </motion.div>
             );
           })}
+        </div>
+
+        {/* Bottom Admissions Banner Strip */}
+        <div className="mt-6 sm:mt-8 text-center">
+          <button
+            onClick={onOpenAdmissionModal || (() => scrollToSection('#enquiry-form'))}
+            className="inline-flex items-center gap-1.5 px-5 sm:px-6 py-2 sm:py-2.5 rounded-full bg-[#002e6d] hover:bg-[#17479d] text-white font-bold text-xs shadow-sm transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+          >
+            <span>Enquire for Admissions 2026–2027</span>
+            <ArrowRight className="w-3.5 h-3.5 text-amber-300" />
+          </button>
         </div>
 
       </div>

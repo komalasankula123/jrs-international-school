@@ -1,150 +1,172 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
-import { navigationData } from '../data/schoolData';
+import { 
+  ChevronDown, ArrowUpRight, Phone, Sparkles
+} from 'lucide-react';
+import { navigationData, contactDetails } from '../data/schoolData';
 
 interface NavbarProps {
   onOpenAdmissionModal?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenAdmissionModal }) => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 60);
+      setIsScrolled(window.scrollY > 40);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      if (href === '#') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+      setActiveDropdown(null);
+    }
+  };
+
   return (
-    <>
-      <header 
-        className={`w-full transition-all duration-300 ${
-          isScrolled
-            ? 'fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl shadow-md border-b border-slate-200/80 py-2 animate-in fade-in slide-in-from-top-2 duration-300'
-            : 'absolute top-0 left-0 right-0 z-50 bg-transparent pt-1.5 sm:pt-2.5 pb-1'
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
-            
-            {/* Left: School Logo (Transparent, Enlarged & Prominent) */}
-            <a href="#" className="flex items-center shrink-0 group transition-transform hover:scale-105">
+    <header 
+      className={`w-full transition-all duration-300 ${
+        isScrolled
+          ? 'fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl shadow-md border-b border-slate-200/80 py-2 sm:py-2.5 animate-in fade-in slide-in-from-top-2 duration-300'
+          : 'absolute top-0 left-0 right-0 z-50 bg-gradient-to-b from-black/75 via-black/35 to-transparent pt-2.5 sm:pt-3.5 pb-4'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-2.5 md:gap-4">
+          
+          {/* Top Row on Mobile / Left on Desktop: Logo & Direct Call/Apply CTAs */}
+          <div className="w-full md:w-auto flex items-center justify-between gap-3">
+            {/* School Logo with Transparent Background & Increased Size */}
+            <a 
+              href="#" 
+              onClick={(e) => handleSmoothScroll(e, '#')}
+              className="flex items-center shrink-0 group transition-transform hover:scale-105"
+            >
               <img 
                 src="/jrs-logo.png" 
                 alt="JRS International School Uppal" 
                 className={`w-auto object-contain transition-all duration-300 ${
                   isScrolled 
-                    ? 'h-10 sm:h-12' 
-                    : 'h-14 sm:h-18 md:h-20 lg:h-24 drop-shadow-[0_4px_16px_rgba(255,255,255,0.7)]'
+                    ? 'h-10 sm:h-12 md:h-14' 
+                    : 'h-14 sm:h-18 md:h-20 lg:h-24 drop-shadow-[0_4px_20px_rgba(255,255,255,0.9)]'
                 }`}
               />
             </a>
 
-            {/* Right: 3-Lines (Hamburger) Menu Button */}
-            <div className="flex items-center">
-              <button
-                onClick={() => setMobileMenuOpen(true)}
-                className={`group flex items-center gap-2.5 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl font-bold transition-all cursor-pointer ${
-                  isScrolled 
-                    ? 'text-slate-900 bg-slate-100 hover:bg-[#17479d] hover:text-white shadow-sm' 
-                    : 'text-white bg-black/35 hover:bg-black/55 backdrop-blur-md drop-shadow-md border border-white/25 hover:border-amber-400'
-                }`}
-                aria-label="Open Menu"
-              >
-                <Menu className="w-6 h-6 sm:w-7 sm:h-7 transition-transform group-hover:scale-110" />
-                <span className="text-sm sm:text-base font-bold tracking-wide uppercase">Menu</span>
-              </button>
+            {/* Quick Admissions CTA for Mobile */}
+            <div className="flex md:hidden items-center gap-2">
+              {onOpenAdmissionModal && (
+                <button
+                  onClick={onOpenAdmissionModal}
+                  className="bg-gradient-to-r from-amber-500 to-amber-400 text-slate-950 font-black text-[11px] px-3 py-1.5 rounded-lg shadow-md flex items-center gap-1 cursor-pointer"
+                >
+                  <Sparkles className="w-3 h-3 text-slate-950 fill-current" />
+                  <span>Admissions 26–27</span>
+                </button>
+              )}
             </div>
-
           </div>
-        </div>
-      </header>
 
-      {/* Slide-out Navigation Drawer Menu (Right Side) */}
-      {mobileMenuOpen && (
-        <div className="fixed inset-0 z-[100] flex justify-end">
-          {/* Backdrop Blur */}
-          <div 
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300 animate-in fade-in"
-            onClick={() => setMobileMenuOpen(false)}
-          />
+          {/* Navigation Items (Directly visible on all views with smooth scroll & dropdowns) */}
+          <nav className="w-full md:w-auto flex items-center justify-center md:justify-end gap-1 sm:gap-1.5 lg:gap-2 overflow-x-auto no-scrollbar py-1">
+            {navigationData.map((item) => {
+              const hasChildren = item.children && item.children.length > 0;
+              const isDropdownActive = activeDropdown === item.name;
 
-          {/* Drawer Content Panel (Right Side Slide-out) */}
-          <div className="relative w-full max-w-sm sm:max-w-md bg-white text-slate-900 h-full shadow-2xl z-10 flex flex-col justify-between overflow-y-auto animate-in slide-in-from-right duration-300">
-            
-            {/* Drawer Header */}
-            <div className="p-5 sm:p-6 border-b border-slate-100 flex items-center justify-between bg-slate-50/80">
-              <img 
-                src="/jrs-logo.png" 
-                alt="JRS International School" 
-                className="h-10 sm:h-12 w-auto object-contain"
-              />
-              <button
-                onClick={() => setMobileMenuOpen(false)}
-                className="p-2 rounded-xl text-slate-500 hover:text-slate-900 hover:bg-slate-200 transition-colors cursor-pointer"
-                aria-label="Close Menu"
-              >
-                <X className="w-6 h-6" />
-              </button>
-            </div>
+              return (
+                <div 
+                  key={item.name} 
+                  className="relative shrink-0"
+                  onMouseEnter={() => hasChildren && setActiveDropdown(item.name)}
+                  onMouseLeave={() => hasChildren && setActiveDropdown(null)}
+                >
+                  <a
+                    href={item.href}
+                    onClick={(e) => handleSmoothScroll(e, item.href)}
+                    className={`group/item px-2.5 sm:px-3 lg:px-3.5 py-1.5 sm:py-2 rounded-xl text-xs sm:text-[13.5px] lg:text-[14.5px] font-bold tracking-wide transition-all duration-200 flex items-center gap-1 cursor-pointer whitespace-nowrap ${
+                      isScrolled
+                        ? 'text-slate-800 hover:text-[#002e6d] hover:bg-slate-100/90'
+                        : 'text-white hover:text-amber-200 hover:bg-white/15 drop-shadow-sm'
+                    }`}
+                  >
+                    <span>{item.name}</span>
+                    {hasChildren && (
+                      <ChevronDown className={`w-3.5 h-3.5 text-amber-400 group-hover/item:text-amber-300 transition-transform duration-200 ${
+                        isDropdownActive ? 'rotate-180 text-amber-300' : 'text-amber-400'
+                      }`} />
+                    )}
+                  </a>
 
-            {/* Drawer Links */}
-            <div className="p-5 sm:p-6 space-y-4 flex-1">
-              <div className="space-y-1">
-                {navigationData.map((item) => (
-                  <div key={item.name} className="border-b border-slate-100/80 pb-2">
-                    <a
-                      href={item.href}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="block text-base sm:text-lg font-bold text-slate-800 py-2 hover:text-[#17479d] hover:translate-x-1 transition-all"
-                    >
-                      {item.name}
-                    </a>
-                    {item.children && (
-                      <div className="pl-3 space-y-1 pb-1">
-                        {item.children.map((sub) => (
+                  {/* Dropdown Menu */}
+                  {hasChildren && isDropdownActive && (
+                    <div className="absolute top-full left-1/2 md:left-0 -translate-x-1/2 md:translate-x-0 pt-2 w-60 sm:w-64 xl:w-72 z-50 animate-in fade-in zoom-in-95 duration-200">
+                      <div className="bg-white rounded-2xl p-2 sm:p-2.5 shadow-2xl border border-slate-200/90 text-slate-800 backdrop-blur-xl">
+                        {item.children?.map((sub) => (
                           <a
                             key={sub.name}
                             href={sub.href}
-                            onClick={() => setMobileMenuOpen(false)}
-                            className="block text-xs sm:text-sm font-medium text-slate-500 hover:text-[#17479d] py-1"
+                            target={sub.href.startsWith('http') ? '_blank' : undefined}
+                            rel={sub.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                            onClick={(e) => {
+                              if (sub.href.startsWith('#')) {
+                                handleSmoothScroll(e, sub.href);
+                              }
+                            }}
+                            className="group/sub flex flex-col p-2 sm:p-2.5 rounded-xl hover:bg-slate-50 transition-colors"
                           >
-                            • {sub.name}
+                            <div className="flex items-center justify-between">
+                              <span className="text-xs sm:text-[13px] font-bold text-slate-900 group-hover/sub:text-[#002e6d] transition-colors">
+                                {sub.name}
+                              </span>
+                              {sub.href.startsWith('http') && (
+                                <ArrowUpRight className="w-3.5 h-3.5 text-amber-500 group-hover/sub:text-amber-600" />
+                              )}
+                            </div>
+                            {sub.desc && (
+                              <span className="text-[10px] sm:text-[11px] text-slate-500 font-normal leading-tight mt-0.5">
+                                {sub.desc}
+                              </span>
+                            )}
                           </a>
                         ))}
                       </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </nav>
 
-            {/* Drawer Footer & Quick Admissions Button */}
-            <div className="p-5 sm:p-6 border-t border-slate-100 bg-slate-50 space-y-3">
-              {onOpenAdmissionModal && (
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    onOpenAdmissionModal();
-                  }}
-                  className="w-full bg-[#17479d] hover:bg-[#002e6d] text-white py-3 rounded-xl font-bold text-sm shadow-md flex items-center justify-center gap-2 cursor-pointer transition-all hover:shadow-lg"
-                >
-                  <span>Apply for Admission 2026-27</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </button>
-              )}
-              <div className="text-center text-xs text-slate-400">
-                Korremula X Road, Narapally, Hyderabad
-              </div>
-            </div>
+          {/* Desktop Right CTA Section */}
+          <div className="hidden md:flex items-center gap-2.5 lg:gap-3 shrink-0">
 
+            {onOpenAdmissionModal && (
+              <button
+                onClick={onOpenAdmissionModal}
+                className="relative group overflow-hidden bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-black text-xs sm:text-[13px] tracking-wide px-3.5 lg:px-4.5 py-2 sm:py-2.5 rounded-xl shadow-lg hover:shadow-amber-400/30 transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] flex items-center gap-1.5 cursor-pointer shrink-0"
+              >
+                <Sparkles className="w-3.5 h-3.5 text-slate-950 fill-current animate-pulse" />
+                <span>Admissions 2026–27</span>
+                <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </button>
+            )}
           </div>
+
         </div>
-      )}
-    </>
+      </div>
+    </header>
   );
 };

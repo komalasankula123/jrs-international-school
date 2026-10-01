@@ -58,20 +58,19 @@ export const CampusOccasionsGallery: React.FC = () => {
   const [selectedItem, setSelectedItem] = useState<OccasionItem | null>(null);
 
   return (
-    <section id="occasions" className="py-12 sm:py-16 bg-white relative overflow-hidden border-t border-slate-200/80">
+    <section id="events" className="py-7 sm:py-9 lg:py-10 bg-white relative overflow-hidden border-t border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4">
-          <div>
-            <span className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.2em] text-[#17479d] block mb-1.5">
-              Campus Life &amp; Highlights
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-slate-900 tracking-tight leading-tight">
-              Occasions &amp; Campus Glimpses
-            </h2>
-          </div>
-          <p className="text-slate-600 text-xs sm:text-sm max-w-md font-normal leading-relaxed">
+        <div className="text-center max-w-3xl mx-auto mb-5 sm:mb-6 space-y-1.5">
+          <span className="text-[#002e6d] text-[11px] font-extrabold uppercase tracking-[0.2em] px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 inline-block shadow-2xs">
+            Campus Life &amp; Highlights
+          </span>
+          <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            Occasions &amp; Campus Glimpses
+          </h2>
+          <div className="w-10 h-1 bg-amber-400 mx-auto rounded-full" />
+          <p className="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-xl mx-auto font-normal">
             Explore diverse celebrations, academic milestones, sports tournaments, and student life at JRS International School.
           </p>
         </div>
