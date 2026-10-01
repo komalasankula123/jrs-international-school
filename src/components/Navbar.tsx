@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  ChevronDown, ArrowUpRight, Phone, Sparkles
+  ChevronDown, ArrowUpRight, Sparkles
 } from 'lucide-react';
-import { navigationData, contactDetails } from '../data/schoolData';
+import { navigationData } from '../data/schoolData';
 
 interface NavbarProps {
   onOpenAdmissionModal?: () => void;
